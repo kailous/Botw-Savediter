@@ -678,3 +678,15 @@ button.no-text.with-icon:before{margin-right:0px}
 .tooltip.position-horizontal.align-top .arrow{top:3px}
 .tooltip.position-horizontal.align-center .arrow{top:50%;margin-top:-5px}
 .tooltip.position-horizontal.align-bottom .arrow{bottom:3px}
+
+span.tips {
+	background: rgb(249 245 218 / 70%);
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+	margin: 10px 0;
+	border-radius: 10px;
+	color: #4f2608;
+}
