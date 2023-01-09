@@ -162,7 +162,7 @@ button.with-icon.file-load:before{background-position:-32px -48px;width:20px;hei
 i.tab-icon{
 	display:inline-block;
 	width:32px;height:32px;
-	background-image:url('../assets/tabs.png');
+	background-image:url('../assets/tabs.svg');
 	background-size:320px;
 }
 i.tab-icon.home{background-position-x:-0px;}
