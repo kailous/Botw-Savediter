@@ -690,8 +690,3 @@ span.tips {
 	border-radius: 10px;
 	color: #4f2608;
 }
-#tab-home {
-display: flex !important;
-flex-direction: column;
-gap: 10px;
-}
