@@ -44,7 +44,7 @@ tr:hover{background-color:#250e0e}
 .columns.c9,.columns.nine{width:74%}
 .columns.c10,.columns.ten{width:82.33333%}
 .columns.c11,.columns.eleven{width:90.66667%}
-.columns.c12,.columns.twelve{width:99%}
+.columns.c12,.columns.twelve{width:100%}
 
 /* grid box */
 .row-items{
@@ -164,6 +164,12 @@ button.with-icon.file-load:before{background-position:-32px -48px;width:20px;hei
 	background-color: white;
 	box-shadow: none;
 }
+.twelve.columns.text-center {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
 i.tab-icon{
 	display:inline-block;
 	width:32px;height:32px;
@@ -281,8 +287,8 @@ th{background-color:#d4d4d4}
 /* forms */
 input[type=text],input[type=number],select{
 	padding:6px 8px;
-	width:250px;
-	max-width:90%;
+	width:100%;
+	/*max-width:90%;*/
 	font:100% 'Open Sans', sans-serif;
 	border:1px solid #888;
 	border-radius:2px;
@@ -367,7 +373,7 @@ button:active > i.tab-icon,button.active > i.tab-icon {
 button:focus{}
 button:disabled{opacity:.35}
 
-button.colored{color:white !important}
+button.colored{color:white !important;margin: 0;}
 button.colored.blue{
 	box-shadow:0 1px 0 rgba(120, 200, 230, 0.5) inset;
 	background-color:#21759B;
