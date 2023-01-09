@@ -154,10 +154,15 @@ button.with-icon.file-load:before{background-position:-32px -48px;width:20px;hei
 	margin:0 2px;
 	min-width:1px;
 	line-height:0;
+	border-radius:10px;
+	border: none;
+	box-shadow: none;
+	background: rgba(68, 25, 25, 0.1) !important;
 }
 .tab-button.active{
-	border-color:#d3af61;
+	/*border-color:#d3af61;*/
 	background-color: white;
+	box-shadow: none;
 }
 i.tab-icon{
 	display:inline-block;
@@ -347,14 +352,17 @@ button:hover{
 	border-color:#999999
 }
 button:active,button.active{
-	background-image:none;
+	background:#2D9AFF !important;
 	transform:translate(0px,1px);
 	border-color:#888;
 	text-shadow:none;
 
-	box-shadow:0 2px 8px -3px rgba(0, 0, 0, 0.5) inset;
+	/*box-shadow:0 2px 8px -3px rgba(0, 0, 0, 0.5) inset;*/
 	background-color:#eeeeee;
 	transform:translateY(1px)
+}
+button:active > i.tab-icon,button.active > i.tab-icon {
+	background-image:url('../assets/tabs-active.svg');
 }
 button:focus{}
 button:disabled{opacity:.35}
