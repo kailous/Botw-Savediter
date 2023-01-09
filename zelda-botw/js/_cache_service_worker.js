@@ -42,8 +42,8 @@ var PRECACHE_URLS=[
 	'/savegame-editors/zelda-botw/zelda-botw.master.js',
 	'/savegame-editors/zelda-botw/favicon.png',
 	'/savegame-editors/zelda-botw/assets/_blank.png',
-	'/savegame-editors/zelda-botw/assets/logo.png',
-	'/savegame-editors/zelda-botw/assets/tabs.png',
+	'/savegame-editors/zelda-botw/assets/logo.svg',
+	'/savegame-editors/zelda-botw/assets/tabs.svg',
 	'/savegame-editors/zelda-botw/assets/bg_black.jpg',
 	'/savegame-editors/zelda-botw/assets/bg_white.jpg',
 	'/savegame-editors/savegame-editor.js'
