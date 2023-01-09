@@ -177,7 +177,7 @@ window.addEventListener('load', function(){
 	dragZone.className='wrapper';
 	var dragMessage=document.createElement('div');
 	dragMessage.id='dragzone-message';
-	dragMessage.innerHTML='<button class="close" onclick="document.getElementById(\'file-load\').click()"><i class=\"icon disk\"></i> Browse '+getSavegameAllNames()+'</button> or drop it here';
+	dragMessage.innerHTML='<button class="close" onclick="document.getElementById(\'file-load\').click()"><i class=\"icon disk\"></i> 载入 '+getSavegameAllNames()+'</button> 拖放到这里';
 
 	var inputFile=document.createElement('input');
 	inputFile.type='file';
@@ -189,7 +189,7 @@ window.addEventListener('load', function(){
 
 	var demoMessage=document.createElement('button');
 	demoMessage.id='demo';
-	demoMessage.innerHTML='Do you want to try it out? <u>Try an example savegame</u>';
+	demoMessage.innerHTML='要先尝试一下吗？ <u>尝试一个示例存档</u>';
 	demoMessage.addEventListener('click', function(){
 		if(typeof window.fetch==='function'){
 			fetch(SavegameEditor.Filename)
