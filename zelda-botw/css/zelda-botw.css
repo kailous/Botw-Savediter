@@ -603,22 +603,69 @@ button.no-text.with-icon:before{margin-right:0px}
 .dialog{
 	position:absolute;top:0;left:0; /* fix for reserved space */
 
-	display:flex;
+	display: flex;
 	flex-direction: column;
-	flex-wrap: nowrap;
 	justify-content: space-between;
+	align-items: center;
+	gap: 25px;
 
-	transform:translateY(-10px);
-	transition:visibility 0s .2s, opacity .2s ease-in, transform .2s ease-in;
-	background-color:white;
-	padding:15px;
-	min-width:360px;
-	max-width:80%;
-	min-height:200px;
-	border-radius:20px;
-	box-shadow:rgba(0,0,0,.5) 0 0 10px;
+	background: rgba(0, 0, 0, 0.8);
+	border: 0.5px solid rgba(0, 103, 223, 0.3);
+	box-shadow: 0px 34px 30px -21px rgba(33, 7, 7, 0.75), inset 0px 0px 214px rgba(0, 113, 196, 0.16);
+	backdrop-filter: blur(12px);
+
+	border-radius: 10px;
+	padding:30px;
+	min-width:620px;
+	max-width:100%;
+
 	line-height:100%;
 	color:#333;
+}
+.dialog.active img {
+	width: 134.87px;
+	height: 36px;
+}
+.dialog.active hr {
+	width: -webkit-fill-available;
+	border: 2px solid #FFFFFF;
+}
+.dialog.active .msgtext {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	color: #fff;
+	line-height:120%;
+}
+.dialog.active hr,.dialog.active .buttons {
+	margin: 0;
+}
+.dialog.active button {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	width: 111px;
+	height: 35px;
+	margin: 0;
+
+	background: #E05418;
+	border-radius: 18px;
+	border: none;
+	box-shadow: none;
+	text-shadow: none;
+
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 100%;
+	color: #fff;
+}
+.dialog.active button:hover {
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 100%;
+	color: #fff;
 }
 .dialog.active{transform:translateY(0px)}
 

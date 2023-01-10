@@ -756,24 +756,24 @@ function unlockKoroks(){
 			break;
 		}
 	}
-	MarcDialogs.alert(unlockedKoroks+' korok seeds were added');
+	MarcDialogs.alert('得到了 '+unlockedKoroks+' 颗 [克洛洛的果实]');
 }
 
 function defeatAllHinox(){
 	var unlockedKoroks=setBooleans(BOTW_Data.DEFEATED_HINOX,'defeated-hinox');
-	MarcDialogs.alert(unlockedKoroks+' Hinox have been defeated');
+	MarcDialogs.alert('打败了 '+unlockedKoroks+' 只 [西诺克斯]');
 }
 function defeatAllTalus(){
 	var unlockedKoroks=setBooleans(BOTW_Data.DEFEATED_TALUS,'defeated-talus');
-	MarcDialogs.alert(unlockedKoroks+' Talus have been defeated');
+	MarcDialogs.alert('打败了 '+unlockedKoroks+' 只 [岩石巨人]');
 }
 function defeatAllMolduga(){
 	var unlockedKoroks=setBooleans(BOTW_Data.DEFEATED_MOLDUGA,'defeated-molduga');
-	MarcDialogs.alert(unlockedKoroks+' Molduga have been defeated');
+	MarcDialogs.alert('打败了 '+unlockedKoroks+' 只 [莫尔德拉吉克]');
 }
 function visitAllLocations(){
 	var missingLocations=setBooleans(BOTW_Data.LOCATIONS);
-	MarcDialogs.alert(missingLocations+' unknown locations were visited');
+	MarcDialogs.alert('访问了 '+missingLocations+' 个未知的地方');
 }
 function setCompendiumToStock(){
 	var setToStock=0;
@@ -996,27 +996,27 @@ function addMapPin(icon, location){
 
 function addKoroksToMap(){
 	var n = addToMap(BOTW_Data.KOROKS, SavegameEditor.Constants.ICON_TYPES.LEAF);
-	MarcDialogs.alert('将 '+n+' 个图钉添加到地图用于标记缺少的 [克洛洛的果实]');
+	MarcDialogs.alert('将 '+n+' 个剩余的 [克洛洛的果实] 图钉添加到地图');
 }
 
 function addHinoxToMap(){
 	var n = addToMap(BOTW_Data.DEFEATED_HINOX, SavegameEditor.Constants.ICON_TYPES.SKULL);
-	MarcDialogs.alert('将 '+n+' 个图钉添加到地图用于标记缺少的 [西诺克斯]');
+	MarcDialogs.alert('将 '+n+' 个剩余的 [西诺克斯] 图钉添加到地图');
 }
 
 function addTalusToMap(){
 	var n = addToMap(BOTW_Data.DEFEATED_TALUS, SavegameEditor.Constants.ICON_TYPES.SHIELD);
-	MarcDialogs.alert('将 '+n+' 个图钉添加到地图用于标记缺少的 [岩石巨人]');
+	MarcDialogs.alert('将 '+n+' 个剩余的 [岩石巨人] 图钉添加到地图');
 }
 
 function addMoldugaToMap(){
 	var n = addToMap(BOTW_Data.DEFEATED_MOLDUGA, SavegameEditor.Constants.ICON_TYPES.CHEST);
-	MarcDialogs.alert('将 '+n+' 个图钉添加到地图用于标记缺少的 [莫尔德拉吉克]');
+	MarcDialogs.alert('将 '+n+' 个剩余的 [莫尔德拉吉克] 图钉添加到地图');
 }
 
 function addLocationsToMap(){
 	var n = addToMap(BOTW_Data.LOCATIONS, SavegameEditor.Constants.ICON_TYPES.STAR);
-	MarcDialogs.alert(n+' pins for missing locations added to map');
+	MarcDialogs.alert('将 '+n+' 个图钉添加到地图');
 }
 
 
