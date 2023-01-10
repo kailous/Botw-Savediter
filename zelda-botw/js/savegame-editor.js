@@ -75,7 +75,7 @@ MarcDialogs = function () {
 			d.msg.innerHTML = t, MarcDialogs.open("quick-alert")
 		}, confirm: function (t, n) {
 			if (!u) {
-				u = document.createElement("div"), u.id = "dialog-quick-confirm", u.className = "dialog", u.msg = document.createElement("div"), u.msg.style.textAlign = "center", u.appendChild(u.msg), u.buttons = document.createElement("div"), u.buttons.className = "buttons";
+				u = document.createElement("div"), u.id = "dialog-quick-confirm", u.className = "dialog", u.logo = document.createElement("img"),u.logo.src ="./assets/wow.svg",u.appendChild(d.logo),u.hr = document.createElement("hr"),u.hr.className = "msghr",d.appendChild(d.hr),u.msg = document.createElement("div"), u.msg.className = "msgtext",u.msg.style.textAlign = "center", u.appendChild(u.msg), u.buttons = document.createElement("div"), u.buttons.className = "buttons";
 				var l = document.createElement("button");
 				l.className = "button colored blue with-icon icon9", l.innerHTML = i[1], e(l, "click", function () {
 					m()
@@ -298,23 +298,19 @@ window.addEventListener('load', function(){
 	});
 
 
-	var warningDialog=document.createElement('div');
-	warningDialog.className='dialog';
-	warningDialog.id='dialog-warning';
-	var warningslogo=document.createElement('img');
-	warningslogo.src = './assets/wow.svg';
-	var warningstext=document.createElement('div');
-	warningstext.className = 'msgtext';
-	warningstext.innerHTML='使用此工具需要您自行承担风险。请做好备份，并任何数据丢失负责。';
-	var divButtons=document.createElement('div');
-	divButtons.className='buttons';
-	var understandButton=document.createElement('button');
-	understandButton.innerHTML='我明白';
-	understandButton.addEventListener('click',function(){
-		var EXPIRE_DAYS=3;
-		var d=new Date();
-		d.setTime(d.getTime()+(EXPIRE_DAYS*24*60*60*1000));
-		document.cookie="hideWarningMessage=1;expires="+d.toUTCString();//+";path=./";
+	var warningDialog = document.createElement('div');
+	warningDialog.className = 'dialog';
+	warningDialog.id = 'dialog-warning';
+	warningDialog.innerHTML = '<img src="./assets/wow.svg"><hr class="msghr"><div class="msgtext" style="text-align: center;">使用此工具需要您自行承担风险。<br />请做好备份，避免任何数据丢失。</div>';
+	var divButtons = document.createElement('div');
+	divButtons.className = 'buttons';
+	var understandButton = document.createElement('button');
+	understandButton.innerHTML = '我明白';
+	understandButton.addEventListener('click', function () {
+		var EXPIRE_DAYS = 3;
+		var d = new Date();
+		d.setTime(d.getTime() + (EXPIRE_DAYS * 24 * 60 * 60 * 1000));
+		document.cookie = "hideWarningMessage=1;expires=" + d.toUTCString();//+";path=./";
 		MarcDialogs.close();
 		saveChanges();
 	}, false);

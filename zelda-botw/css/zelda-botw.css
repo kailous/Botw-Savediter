@@ -630,7 +630,7 @@ button.no-text.with-icon:before{margin-right:0px}
 	width: -webkit-fill-available;
 	border: 2px solid #FFFFFF;
 }
-.dialog.active .msgtext {
+.dialog.active .msgtext , #dialog-warning{
 	font-style: normal;
 	font-weight: 700;
 	font-size: 24px;
@@ -661,6 +661,13 @@ button.no-text.with-icon:before{margin-right:0px}
 	line-height: 100%;
 	color: #fff;
 }
+/*#dialog-warning {*/
+/*	font-style: normal;*/
+/*	font-weight: 700;*/
+/*	font-size: 24px;*/
+/*	color: #fff;*/
+/*	line-height:120%;*/
+/*}*/
 .dialog.active button:hover {
 	font-weight: 700;
 	font-size: 15px;
