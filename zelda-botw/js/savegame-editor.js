@@ -301,7 +301,11 @@ window.addEventListener('load', function(){
 	var warningDialog=document.createElement('div');
 	warningDialog.className='dialog';
 	warningDialog.id='dialog-warning';
-	warningDialog.innerHTML='使用此工具需要您自行承担风险。请做好备份，并任何数据丢失负责。';
+	var warningslogo=document.createElement('img');
+	warningslogo.src = './assets/wow.svg';
+	var warningstext=document.createElement('div');
+	warningstext.className = 'msgtext';
+	warningstext.innerHTML='使用此工具需要您自行承担风险。请做好备份，并任何数据丢失负责。';
 	var divButtons=document.createElement('div');
 	divButtons.className='buttons';
 	var understandButton=document.createElement('button');
