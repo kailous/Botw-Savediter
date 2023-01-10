@@ -73,38 +73,38 @@
 	<div id="tab-home">
 		<!-- RUPEES -->
 		<h3 class="border-red">状态</h3>
-		<div class="row">
+		<div class="row row-items">
 			<div class="ten columns"><label for="number-rupees">卢比</label></div>
 			<div class="two columns"><input id="number-rupees" class="full-width" type="text" /></div>
 		</div>
-		<div class="row">
+		<div class="row row-items">
 			<div class="ten columns"><label for="number-mons">怪币｜怪物商店使用</label></div>
 			<div class="two columns"><input id="number-mons" class="full-width" type="text" /></div>
 		</div>
-		<div class="row">
+		<div class="row row-items">
 <!--			<div class="ten columns"><label for="number-relic-gerudo">Gerudo relic remaining uses</label></div>-->
 			<div class="ten columns"><label for="number-relic-gerudo">英杰达乌尔波扎的愤怒剩余使用次数</label></div>
 			<div class="two columns text-right"><input id="number-relic-gerudo" class="small" type="text" /></div>
 		</div>
-		<div class="row">
+		<div class="row row-items">
 <!--			<div class="ten columns"><label for="number-relic-goron">Goron relic remaining uses</label></div>-->
 			<div class="ten columns"><label for="number-relic-goron">英杰达克尔克的守护剩余使用次数</label></div>
 			<div class="two columns text-right"><input id="number-relic-goron" class="small" type="text" /></div>
 		</div>
-		<div class="row">
+		<div class="row row-items">
 <!--			<div class="ten columns"><label for="number-relic-rito">Rito relic remaining uses</label></div>-->
 			<div class="ten columns"><label for="number-relic-rito">英杰力巴尔的勇猛剩余使用次数</label></div>
 			<div class="two columns text-right"><input id="number-relic-rito" class="small" type="text" /></div>
 		</div>
-		<div class="row" id="row-motorcycle">
+		<div class="row row-items" id="row-motorcycle">
 			<div class="ten columns"><label for="checkbox-motorcycle">摩托车</label></div>
 			<div class="two columns text-right"><input id="checkbox-motorcycle" type="checkbox" value="1" /></div>
 		</div>
-		<div class="row">
+		<div class="row row-items">
 			<div class="ten columns"><label for="number-playtime">游戏时间</label></div>
 			<div class="two columns"><input type="text" id="number-playtime" class="text-right full-width" disabled /></div>
 		</div>
-		<div class="row">
+		<div class="row row-items">
 			<div class="ten columns"><label for="select-max-hearts">最大心心</label></div>
 			<div class="two columns">
 				<select id="select-max-hearts" class="full-width">
@@ -141,7 +141,7 @@
 				</select>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row row-items">
 			<div class="ten columns"><label for="select-max-stamina">最大耐力</label></div>
 			<div class="two columns">
 				<select id="select-max-stamina" class="full-width">
@@ -162,14 +162,14 @@
 		
 		<!-- Coordinates (Requires a memory editor) -->
 		<h3 class="border-green">坐标</h3>
-		<div class="row">
+		<div class="row row-items">
 			<div class="six columns"><label for="float-pos-x">当前 林克 坐标 (XYZ)</label></div>
 			<div class="two columns"><input id="float-pos-x" onchange="guessMainFieldGrid()" class="full-width" type="text" /></div>
 			<div class="two columns"><input id="float-pos-y" onchange="guessMainFieldGrid()" class="full-width" type="text" /></div>
 			<div class="two columns"><input id="float-pos-z" onchange="guessMainFieldGrid()" class="full-width" type="text" /></div>
 		</div>
 
-		<div class="row">
+		<div class="row row-items">
 			<div class="six columns"><label for="select-pos-maptype">地图</label></div>
 			<div class="three columns"><select id="select-pos-maptype"></select></div>
 			<div class="three columns"><select id="select-pos-map"></select></div>
@@ -182,7 +182,7 @@
 
 		<!-- COMPLETIONISM -->
 		<h3 class="border-blue">完成度</h3>
-		<div class="row">
+		<div class="row row-items">
 			<div class="seven columns"><label for="number-koroks">克洛洛的果实</label></div>
 			<div class="five columns text-right">
 				<input type="text" id="number-koroks" style="width:50px" disabled />
@@ -191,15 +191,15 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="seven columns"><label for="number-defeated-hinox">打败希诺克斯</label></div>
+		<div class="row row-items">
+			<div class="seven columns"><label for="number-defeated-hinox">打败西诺克斯</label></div>
 			<div class="five columns text-right">
 				<input type="text" id="number-defeated-hinox" style="width:50px" disabled />
 				<button onclick="defeatAllHinox()">打败所有</button>
 				<button onclick="addHinoxToMap()">将图钉添加到地图</button>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row row-items">
 			<div class="seven columns"><label for="number-defeated-talus">打败岩石巨人</label></div>
 			<div class="five columns text-right">
 				<input type="text" id="number-defeated-talus" style="width:50px" disabled />
@@ -207,7 +207,7 @@
 				<button onclick="addTalusToMap()">将图钉添加到地图</button>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row row-items">
 			<div class="seven columns"><label for="number-defeated-molduga">打败莫尔德拉吉克</label></div>
 			<div class="five columns text-right">
 				<input type="text" id="number-defeated-molduga" style="width:50px" disabled />
@@ -215,14 +215,14 @@
 				<button onclick="addMoldugaToMap()">将图钉添加到地图</button>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row row-items">
 			<div class="nine columns"><label for="number-defeated-molduga">海拉鲁图鉴</label></div>
 			<div class="three columns text-right">
 				<button onclick="setCompendiumToStock()">设为库存</button>
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row row-items">
 			<div class="seven columns">访问过的地方｜貌似是作者自己的标记</div>
 			<div class="five columns text-right">
 				<button onclick="visitAllLocations()">访问所有</button>
@@ -230,7 +230,7 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row row-items">
 			<div class="nine columns">地图图钉</div>
 			<div class="three columns text-right">
 				<input type="text" id="number-map-pins" style="width:50px" disabled />
@@ -283,46 +283,46 @@
 	<div id="tab-horses">
 		<h3 class="border-blue">马匹</h3>
 		<span class="tips">tips: 马的名字修改成中文后，无法在游戏内显示。编码不一样，游戏内中文的马名称在这里也是乱码。技术水平有限目前无解。</span>
-		<div class="row"><div class="twelve columns">马匹 #1</div></div>
-		<div class="row" id="row-horse0">
+		<div class="row row-items2"><div class="twelve columns">马匹 #1</div></div>
+		<div class="row row-items" id="row-horse0">
 			<div class="three columns"><select id="select-horse0-type"></select></div>
-			<div class="three columns"><input type="text" charset="gbk" id="input-horse0-name" /></div>
+			<div class="three columns"><input type="text" id="input-horse0-name" /></div>
 			<div class="three columns"><select id="select-horse0-saddles"></select></div>
 			<div class="three columns"><select id="select-horse0-reins"></select></div>
 		</div>
-		<div class="row"><div class="twelve columns">马匹 #2</div></div>
+		<div class="row row-items2"><div class="twelve columns">马匹 #2</div></div>
 		<div class="row" id="row-horse1">
 			<div class="three columns"><select id="select-horse1-type"></select></div>
 			<div class="three columns"><input type="text" id="input-horse1-name" /></div>
 			<div class="three columns"><select id="select-horse1-saddles"></select></div>
 			<div class="three columns"><select id="select-horse1-reins"></select></div>
 		</div>
-		<div class="row"><div class="twelve columns">马匹 #3</div></div>
+		<div class="row row-items2"><div class="twelve columns">马匹 #3</div></div>
 		<div class="row" id="row-horse2">
 			<div class="three columns"><select id="select-horse2-type"></select></div>
 			<div class="three columns"><input type="text" id="input-horse2-name" /></div>
 			<div class="three columns"><select id="select-horse2-saddles"></select></div>
 			<div class="three columns"><select id="select-horse2-reins"></select></div>
 		</div>
-		<div class="row"><div class="twelve columns">马匹 #4</div></div>
+		<div class="row row-items2"><div class="twelve columns">马匹 #4</div></div>
 		<div class="row" id="row-horse3">
 			<div class="three columns"><select id="select-horse3-type"></select></div>
 			<div class="three columns"><input type="text" id="input-horse3-name" /></div>
 			<div class="three columns"><select id="select-horse3-saddles"></select></div>
 			<div class="three columns"><select id="select-horse3-reins"></select></div>
 		</div>
-		<div class="row"><div class="twelve columns">马匹 #5</div></div>
+		<div class="row row-items2"><div class="twelve columns">马匹 #5</div></div>
 		<div class="row" id="row-horse4">
 			<div class="three columns"><select id="select-horse4-type"></select></div>
 			<div class="three columns"><input type="text" id="input-horse4-name" /></div>
 			<div class="three columns"><select id="select-horse4-saddles"></select></div>
 			<div class="three columns"><select id="select-horse4-reins"></select></div>
 		</div>
-		<div class="row"><div class="twelve columns">野马</div></div>
+		<div class="row row-items2"><div class="twelve columns">野马</div></div>
 		<div class="row" id="row-horse5">
 			<div class="three columns end"><select id="select-horse5-type"></select></div>
 		</div>
-		<div class="row">
+		<div class="row row-items">
 			<div class="six columns"><label for="float-pos-x-horse">当前马坐标 (XYZ)</label></div>
 			<div class="two columns"><input id="float-pos-x-horse" class="full-width" type="text" /></div>
 			<div class="two columns"><input id="float-pos-y-horse" class="full-width" type="text" /></div>

@@ -1,0 +1,39 @@
+{
+  "name": "botw-savediter",
+  "version": "1.0.0",
+  "description": "塞尔达传说：旷野之息 游戏存档修改器",
+  "main": "main.js",
+  "scripts": {
+    "start": "../zelda-botw-app/node_modules/.bin/electron-forge start",
+    "package": "../zelda-botw-app/node_modules/.bin/electron-forge package",
+    "make": "../zelda-botw-app/node_modules/.bin/electron-forge make",
+    "package-win": "../zelda-botw-app/node_modules/.bin/electron-packager ./ --platform=win32 --out ./dist  --overwrite  --ignore=node_modules --arch=x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kailous/Botw-Savediter.git#main"
+  },
+  "keywords": [
+    "save",
+    "editer",
+    "botw"
+  ],
+  "author": "Rainforest",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kailous/Botw-Savediter/issues"
+  },
+  "homepage": "https://github.com/kailous/Botw-Savediter/tree/main#readme",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.4",
+    "@electron-forge/maker-deb": "^6.0.4",
+    "@electron-forge/maker-rpm": "^6.0.4",
+    "@electron-forge/maker-squirrel": "^6.0.4",
+    "@electron-forge/maker-zip": "^6.0.4",
+    "electron": "^22.0.0",
+    "electron-builder": "^23.6.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  }
+}

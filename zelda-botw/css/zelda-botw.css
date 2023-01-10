@@ -3,7 +3,16 @@
 
 /* @FONT-FACES */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800');
-
+/* APP窗口配置 - 开始 */
+html {
+	-webkit-app-region: drag;
+	-webkit-user-select: none;
+	-webkit-app-region: drag;
+}
+button {
+	-webkit-app-region: no-drag;
+}
+/* APP窗口配置 - 结束 */
 
 body{
 	font:15px 'Open Sans',sans-serif;
@@ -48,9 +57,17 @@ tr:hover{background-color:#250e0e}
 
 /* grid box */
 .row-items{
-	background-color:rgba(0,0,0,.4);
+	background-color:rgba(19,1,1,.4);
+	backdrop-filter: blur(4px);
 	position:relative;
 	margin-bottom:4px;
+	padding:10px;
+}
+.row-items2{
+	background-color:rgba(19,1,1,.4);
+	backdrop-filter: blur(4px);
+	position:relative;
+	margin-bottom:0px;
 	padding:10px;
 }
 .row-items img{max-width:100%}
@@ -586,16 +603,21 @@ button.no-text.with-icon:before{margin-right:0px}
 .dialog{
 	position:absolute;top:0;left:0; /* fix for reserved space */
 
+	display:flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+
 	transform:translateY(-10px);
 	transition:visibility 0s .2s, opacity .2s ease-in, transform .2s ease-in;
-
 	background-color:white;
 	padding:15px;
 	min-width:360px;
 	max-width:80%;
-	border-radius:4px;
+	min-height:200px;
+	border-radius:20px;
 	box-shadow:rgba(0,0,0,.5) 0 0 10px;
-	line-height:1.8;
+	line-height:100%;
 	color:#333;
 }
 .dialog.active{transform:translateY(0px)}

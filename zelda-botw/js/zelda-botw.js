@@ -787,7 +787,7 @@ function setCompendiumToStock(){
 			}
 		}
 	}
-	MarcDialogs.alert(setToStock+' pics were reseted to stock.<br/>You can now safely remove all .jpg files under <u>pict_book</u> folder.');
+	MarcDialogs.alert(setToStock+' 张照片被重置为库存。<br/>您现在可以安全地删除 <u>pict_book</u> 文件夹下面的所有 .jpg 文件。');
 }
 
 var mapPinCount = 0;
@@ -893,7 +893,7 @@ function clearMapPins(){
 	}
 	mapPinCount = 0;
 	setValue('number-map-pins', 0);
-	MarcDialogs.alert(count+' map pins removed');
+	MarcDialogs.alert('删除了 '+count+' 个地图图钉');
 }
 
 function iterateMapPins(f){
@@ -996,22 +996,22 @@ function addMapPin(icon, location){
 
 function addKoroksToMap(){
 	var n = addToMap(BOTW_Data.KOROKS, SavegameEditor.Constants.ICON_TYPES.LEAF);
-	MarcDialogs.alert(n+' pins for missing Korok seeds added to map');
+	MarcDialogs.alert('将 '+n+' 个图钉添加到地图用于标记缺少的 [克洛洛的果实]');
 }
 
 function addHinoxToMap(){
 	var n = addToMap(BOTW_Data.DEFEATED_HINOX, SavegameEditor.Constants.ICON_TYPES.SKULL);
-	MarcDialogs.alert(n+' pins for missing Hinox added to map');
+	MarcDialogs.alert('将 '+n+' 个图钉添加到地图用于标记缺少的 [西诺克斯]');
 }
 
 function addTalusToMap(){
 	var n = addToMap(BOTW_Data.DEFEATED_TALUS, SavegameEditor.Constants.ICON_TYPES.SHIELD);
-	MarcDialogs.alert(n+' pins for missing Talus added to map');
+	MarcDialogs.alert('将 '+n+' 个图钉添加到地图用于标记缺少的 [岩石巨人]');
 }
 
 function addMoldugaToMap(){
 	var n = addToMap(BOTW_Data.DEFEATED_MOLDUGA, SavegameEditor.Constants.ICON_TYPES.CHEST);
-	MarcDialogs.alert(n+' pins for missing Molduga added to map');
+	MarcDialogs.alert('将 '+n+' 个图钉添加到地图用于标记缺少的 [莫尔德拉吉克]');
 }
 
 function addLocationsToMap(){
