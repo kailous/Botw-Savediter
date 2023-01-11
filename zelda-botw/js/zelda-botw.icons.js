@@ -156,6 +156,6 @@ var BOTW_Icons=(function(){
 			}
 		},
 
-		getBlankIcon:function(){return './assets/_blank.png'},
+		getBlankIcon:function(){return './assets/none_blank.png'},
 	}
 }());
