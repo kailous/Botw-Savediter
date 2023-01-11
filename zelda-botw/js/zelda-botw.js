@@ -1,6 +1,9 @@
 /*
 	The legend of Zelda: Breath of the wild v20200218
+	塞尔达传说：旷野之息 v20200218
 	by Marc Robledo 2017-2020
+	translate by RainForest 2023
+	除了提示框汉化以外，我还做了不通信息的颜色区分，现在可以用 msgnb 来修改数字颜色为蓝色，msgnm 修改文字颜色为橙色。
 */
 var currentEditingItem=0;
 
@@ -10,12 +13,13 @@ SavegameEditor={
 	Version:20200218,
 
 	/* Constants */
+	/* 常量 */
 	Constants:{
 		MAX_ITEMS:420,
 		STRING_SIZE:0x20,
 		STRING64_SIZE:0x80,
 
-		//missing versions: 1.1.1, 1.1.2 and 1.4.1
+		//缺少版本：1.1.1、1.1.2 和 1.4.1
 		VERSION:				['v1.0', 'v1.1', 'v1.2', 'v1.3', 'v1.3.1', 'Kiosk', 'v1.3.3','v1.3.4', 'v1.4',  'v1.5',  'v1.5*',  'v1.6',  'v1.6*', 'v1.6**','v1.6***'],
 		FILESIZE:				[896976, 897160, 897112, 907824, 907824,  916576,  1020648, 1020648,   1027208, 1027208, 1027248, 1027216, 1027216, 1027216, 1027216],
 		HEADER:					[0x24e2, 0x24ee, 0x2588, 0x29c0, 0x2a46,  0x2f8e,  0x3ef8,  0x3ef9,    0x471a,  0x471b, 0x471b,  0x471e, 0x0f423d, 0x0f423e,0x0f423f],
@@ -23,7 +27,7 @@ SavegameEditor={
 		ICON_TYPES:{SWORD: 27, BOW:28, SHIELD:29, POT:30, STAR:31, CHEST:32,SKULL:33,LEAF:34,TOWER:35}
 	},
 
-	/* Hashes */
+	/* 哈希 */
 	Hashes:[
 		0x0bee9e46, 'MAP',
 		0x0cbf052a, 'FLAGS_BOW',
@@ -60,8 +64,85 @@ SavegameEditor={
 		0xfda0cde4, 'RELIC_RITO'
 	],
 
+	/* Document utils */
+	/* 文档实用程序 */
+
+	_getRowFromItemNumber: function(itemNumber){
+		var nameSpan, spanContainer, row;
+		nameSpan = document.getElementById("item-name"+itemNumber);
+		if(nameSpan.parentElement){
+			spanContainer = nameSpan.parentElement;
+			if(spanContainer.parentElement){
+				row = spanContainer.parentElement;
+			}
+		}
+		return row;
+	},
+	_getItemNumberFromRow: function(rowElement){
+		var rawItemNumber = rowElement
+			.children[1] // Name column 名称列
+			.children[1] // span with the item number 跨度与项目编号
+			.innerHTML;
+		return rawItemNumber.match(/#([0-9]*)/)[1];
+	},
+	_getItemNameFromDoc: function(itemNumber){
+		var element = document.getElementById("item-name"+itemNumber);
+		if(element && element.innerText){
+			return element.innerText;
+		}
+		return null;
+	},
+	_setItemNameInDoc: function(itemNumber, itemName){
+		var element = document.getElementById("item-name"+itemNumber);
+		if(element){
+			element.innerText = itemName;
+		}
+	},
+	_getItemModifierFromDoc: function(itemNumber, itemCategory){
+		var element = document.getElementById("select-modifier-"+itemCategory+"-"+itemNumber);
+		if(element && element.value){
+			return element.value;
+		}
+		return null;
+	},
+	_setItemModifierInDoc: function(itemNumber, itemCategory, itemModifier){
+		var element = document.getElementById("select-modifier-"+itemCategory+"-"+itemNumber);
+		if(element && element.value){
+			element.value = itemModifier;
+			return;
+		}
+	},
+	_getItemModifierValueFromDoc: function(itemNumber, itemCategory){
+		var element = document.getElementById("number-modifier-"+itemCategory+"-value-"+itemNumber);
+		if(element && element.value){
+			return element.value;
+		}
+		return null;
+	},
+	_setItemModifierValueInDoc: function(itemNumber, itemCategory, itemModifierValue){
+		var element = document.getElementById("number-modifier-"+itemCategory+"-value-"+itemNumber);
+		if(element && element.value){
+			element.value = itemModifierValue;
+			return;
+		}
+	},
+	_getItemDurabilityFromDoc: function(itemNumber){
+		var element = document.getElementById("number-item"+itemNumber);
+		if(element && element.value){
+			return element.value;
+		}
+		return null;
+	},
+	_setItemDurabilityInDoc: function(itemNumber, itemDurability){
+		var element = document.getElementById("number-item"+itemNumber);
+		if(element && element.value){
+			element.value = itemDurability;
+			return;
+		}
+	},
 
 	/* private functions */
+	/* 私有函数 */
 	_toHexInt:function(i){var s=i.toString(16);while(s.length<8)s='0'+s;return '0x'+s},
 	_writeBoolean:function(offset,val,arrayIndex){if(arrayIndex)tempFile.writeU32(offset+8*arrayIndex,val?1:0);else tempFile.writeU32(offset,val?1:0)},
 	_writeValue:function(offset,val,arrayIndex){if(arrayIndex)tempFile.writeU32(offset+8*arrayIndex,val);else tempFile.writeU32(offset,val)},
@@ -116,7 +197,6 @@ SavegameEditor={
 			}*/
 		}
 	},
-
 
 	_getItemTranslation:function(itemId){
 		for(var i=0; i<BOTW_Data.Translations.length; i++)
@@ -216,7 +296,7 @@ SavegameEditor={
 		var r=row([1,6,3,2],
 			img,
 			span,
-			document.createElement('div'), /* modifier column */
+			document.createElement('div'), /* modifier column 修饰列 */
 			input
 		);
 		r.className+=' row-items';
@@ -241,7 +321,27 @@ SavegameEditor={
 			this._writeItemName(i,itemNameId);
 			var row=this._createItemRow(i, false);
 			document.getElementById('container-'+this._getItemCategory(itemNameId)).appendChild(row);
-			
+
+			//add modifier fields
+			//添加修饰字段
+			var newItemCategory = this._getItemCategory(itemNameId);
+			var modifierColumns=['weapons','bows','shields'];
+			if(modifierColumns.indexOf(newItemCategory)>=0){
+				if(newItemCategory === "bows" && !itemNameId.startsWith('Weapon_')){
+					// do nothing (arrows do not have modifiers)
+					// 什么都不做（箭头没有修饰符）
+				}else{
+					var category = currentTab;
+					var categorySingular = category.replace(/s$/,"");
+					var modifier=tempFile.readU32(this.Offsets['FLAGS_'+categorySingular.toUpperCase()]+i*8);
+					var modifierSelect=select('modifier-'+category+'-'+i, BOTW_Data.MODIFIERS.concat({value:modifier,name:this._toHexInt(modifier)}));
+					modifierSelect.value=modifier;
+					var modifierContainer=this._getRowFromItemNumber(i).children[2];
+					modifierContainer.appendChild(modifierSelect);
+					modifierContainer.appendChild(inputNumber('modifier-'+category+'-value-'+i, 0, 0xffffffff, tempFile.readU32(this.Offsets['FLAGSV_'+categorySingular.toUpperCase()]+i*8)));
+				}
+			}
+
 			(row.previousElementSibling || row).scrollIntoView({block:'start', behavior:'smooth'});
 			this.editItem(i);
 		}
@@ -272,7 +372,7 @@ SavegameEditor={
 		if(document.getElementById('number-item'+i))
 			document.getElementById('number-item'+i).maxValue=this._getItemMaximumQuantity(nameId);
 	},
-	
+
 	filterItems:function(category){
 	},
 
@@ -327,8 +427,11 @@ SavegameEditor={
 		return arr2;
 	},
 
-
 	changeEndianess:function(){
+		// Save item data in clipboard
+		// 在剪贴板中保存项目数据
+		BOTW_Clipboard.fillClipboardWithItems();
+
 		var tempFileByteSwapped=new MarcFile(tempFile.fileSize);
 		tempFileByteSwapped.fileType=tempFile.fileType;
 		tempFileByteSwapped.fileName=tempFile.fileName;
@@ -338,9 +441,21 @@ SavegameEditor={
 		}
 		tempFile=tempFileByteSwapped;
 		this.checkValidSavegame();
+
+		// reload save to apply changes
+		// 重新加载保存以应用更改
+		this.load();
+		// after changing endianess and reloading save, items get corrupted and all of them go to the other tab
+		// 更改字节顺序并重新加载保存后，项目被损坏，所有项目都转到另一个选项卡
+		empty('container-other');
+		// overwrite corrupted items with the ones in the clipboard
+		// 用剪贴板中的项目覆盖损坏的项目
+		BOTW_Clipboard.overwriteItemsWithClipboard();
+
 	},
 
 	/* check if savegame is valid */
+	/* 检查游戏存档是否有效 */
 	_checkValidSavegameByConsole:function(switchMode){
 		var CONSOLE=switchMode?'Switch':'Wii U';
 		tempFile.littleEndian=switchMode;
@@ -354,11 +469,9 @@ SavegameEditor={
 			}else if((tempFile.fileSize>=896976 && tempFile.fileSize<=1500000) && versionHash===this.Constants.HEADER[i] && tempFile.readU32(4)===0xffffffff){ /* check for mods, filesizes vary */
 				this._getOffsets(i);
 				setValue('version', this.Constants.VERSION[i]+'<small>mod</small> ('+CONSOLE+')');
-				return true;			
+				return true;
 			}
 		}
-		
-		
 
 		return false
 	},
@@ -383,6 +496,7 @@ SavegameEditor={
 		setNumericRange('relic-rito', 0, 99);
 
 		/* prepare edit item selector */
+		/* 准备编辑项选择器 */
 		this.selectItem.categories={};
 		for(var i=0; i<BOTW_Data.Translations.length; i++){
 			var optGroup=document.createElement('optgroup');
@@ -401,13 +515,13 @@ SavegameEditor={
 		this.selectItem.value='Armor_180_Lower';
 
 		/* map position selectors */
+		/* 地图位置选择器 */
 		select(
 			'pos-maptype',
 			[
 				'?',
-				// {value:'MainField',name:'MainField'},
-				{value:'MainField',name:'主要区域'},
-				{value:'MainFieldDungeon',name:'神庙'}
+				{value:'MainField',name:'MainField'},
+				{value:'MainFieldDungeon',name:'MainFieldDungeon'}
 			],
 			function(){
 				if(this.value==='MainField'){
@@ -452,6 +566,7 @@ SavegameEditor={
 
 
 		/* horses */
+		/* 马匹 */
 		for(var i=0; i<6; i++){
 			if(i<5){
 				get('input-horse'+i+'-name').horseIndex=i;
@@ -468,9 +583,9 @@ SavegameEditor={
 			select('horse'+i+'-reins', this._arrayToSelectOpts(BOTW_Data.HORSE_REINS));
 			select('horse'+i+'-type', this._arrayToSelectOpts(i===5?BOTW_Data.HORSE_TYPES.concat(BOTW_Data.HORSE_TYPES_UNTAMMED):BOTW_Data.HORSE_TYPES));
 		}
-		
-		
-		
+
+
+
 		MarcTooltips.add('.tab-button',{className:'dark',fixed:true});
 	},
 
@@ -482,12 +597,14 @@ SavegameEditor={
 		return parseInt(timeVal/3600)+':'+minutes+':'+seconds;
 	},
 
-	/* load function */
+	/* Load data from the savegame file */
+	/* 从存档文件加载数据 */
 	load:function(){
 		tempFile.fileName='game_data.sav';
 
 
 		/* prepare editor */
+		/* 准备编辑器 */
 		setValue('rupees', tempFile.readU32(this.Offsets.RUPEES));
 		setValue('mons', tempFile.readU32(this.Offsets.MONS));
 		setValue('max-hearts', tempFile.readU32(this.Offsets.MAX_HEARTS));
@@ -505,6 +622,7 @@ SavegameEditor={
 
 
 		/* motorcycle */
+		/* 摩托车 */
 		document.getElementById('checkbox-motorcycle').checked=!!tempFile.readU32(this.Offsets.MOTORCYCLE);
 		if(this.Offsets.MOTORCYCLE){
 			document.getElementById('row-motorcycle').style.display='flex';
@@ -514,6 +632,7 @@ SavegameEditor={
 
 
 		/* coordinates */
+		/*坐标*/
 		setValue('pos-x', tempFile.readF32(this.Offsets.PLAYER_POSITION));
 		setValue('pos-y', tempFile.readF32(this.Offsets.PLAYER_POSITION+8));
 		setValue('pos-z', tempFile.readF32(this.Offsets.PLAYER_POSITION+16));
@@ -533,10 +652,12 @@ SavegameEditor={
 
 
 		/* map pins */
+		/* 地图图钉 */
 		loadMapPins();
 
 
 		/* items */
+		/* 物品 */
 		empty('container-weapons');
 		empty('container-bows');
 		empty('container-shields');
@@ -545,8 +666,10 @@ SavegameEditor={
 		empty('container-food');
 		empty('container-other');
 
-		var modifiersArray=[0,0,0];
-		var search=0; //0:weapons, 1:bows, 2:shields
+		// Since item of the same category are not necessarily adjacent, store item number instead of just a counter
+		// 由于同一类别的项目不一定相邻，因此存储物品编号而不是仅仅存储一个计数器
+		var modifiersArray=[[],[],[]];
+		var search=0; //0:weapons 武器, 1:bows 弓箭, 2:shields 盾牌
 		for(var i=0; i<this.Constants.MAX_ITEMS; i++){
 			var itemNameId=this._loadItemName(i);
 			if(itemNameId==='')
@@ -557,47 +680,42 @@ SavegameEditor={
 				this._createItemRow(i, itemCat)
 			);
 
-			if(search===0 && itemCat==='bows'){
-				search=1;
-			}else if(search===0 && itemCat==='shields'){
-				search=2;
-			}else if(search===1 && itemCat==='shields'){
-				search=2;
-			}else if(itemCat!=='weapons' && itemCat!=='bows' && itemCat!=='shields'){
-				search=3;
+			if(itemCat==='weapons'){
+				modifiersArray[0].push(i);
+			}else if(itemCat==='bows' && itemNameId.startsWith('Weapon_')){
+				modifiersArray[1].push(i);
+			}else if(itemCat==='shields'){
+				modifiersArray[2].push(i);
 			}
-
-			if(itemCat==='weapons' && search===0){
-				modifiersArray[0]++;
-			}else if(itemCat==='bows' && search===1 && itemNameId.startsWith('Weapon_')){
-				modifiersArray[1]++;
-			}else if(itemCat==='shields' && search===2){
-				modifiersArray[2]++;
-			}
-
 		}
+
 		MarcTooltips.add('#container-weapons input',{text:'Weapon durability',position:'bottom',align:'right'});
 		MarcTooltips.add('#container-bows input',{text:'Bow durability',position:'bottom',align:'right'});
 		MarcTooltips.add('#container-shields input',{text:'Shield durability',position:'bottom',align:'right'});
 		BOTW_Icons.startLoadingIcons();
 
 		/* modifier column */
+		/* 修饰列 */
 		var modifierColumns=['weapon','bow','shield'];
 		for(var j=0; j<3; j++){
 			var modifierColumn=modifierColumns[j];
-			for(var i=0; i<modifiersArray[j]; i++){
-				var modifier=tempFile.readU32(this.Offsets['FLAGS_'+modifierColumn.toUpperCase()]+i*8);
-				var modifierSelect=select('modifier-'+modifierColumn+'s-'+i, BOTW_Data.MODIFIERS.concat({value:modifier,name:this._toHexInt(modifier)}));
+			for(var i=0; i<modifiersArray[j].length; i++){
+				var itemNumber = modifiersArray[j][i];
+				//Adapt this because indexes are not sequential (the same as in save())
+				// 调整这个因为索引不是连续的（与 save() 中相同）
+				var modifier=tempFile.readU32(this.Offsets['FLAGS_'+modifierColumn.toUpperCase()]+itemNumber*8);
+				var modifierSelect=select('modifier-'+modifierColumn+'s-'+itemNumber, BOTW_Data.MODIFIERS.concat({value:modifier,name:this._toHexInt(modifier)}));
 				modifierSelect.value=modifier;
 
-				var additional=document.getElementById('container-'+modifierColumn+'s').children[i].children[2];
+				var row = this._getRowFromItemNumber(itemNumber);
+				var additional = row.children[2];
 				additional.appendChild(modifierSelect);
-				additional.appendChild(inputNumber('modifier-'+modifierColumn+'s-value-'+i, 0, 0xffffffff, tempFile.readU32(this.Offsets['FLAGSV_'+modifierColumn.toUpperCase()]+i*8)));
+				additional.appendChild(inputNumber('modifier-'+modifierColumn+'s-value-'+itemNumber, 0, 0xffffffff, tempFile.readU32(this.Offsets['FLAGSV_'+modifierColumn.toUpperCase()]+itemNumber*8)));
 			}
 		}
 
-
 		/* horses */
+		/* 马匹 */
 		for(var i=0; i<6; i++){
 			if(i<5){
 				setValue('horse'+i+'-name',this._readString64(this.Offsets.HORSE_NAMES, i));
@@ -613,17 +731,14 @@ SavegameEditor={
 			}
 		}
 
-
-
-
-
-
 		showTab('home');
 	},
 
 	/* save function */
+	/* 保存函数 */
 	save:function(){
 		/* STATS */
+		/* 统计 */
 		tempFile.writeU32(this.Offsets.RUPEES, getValue('rupees'));
 		tempFile.writeU32(this.Offsets.MONS, getValue('mons'));
 		tempFile.writeU32(this.Offsets.MAX_HEARTS, getValue('max-hearts'));
@@ -632,14 +747,15 @@ SavegameEditor={
 		tempFile.writeU32(this.Offsets.RELIC_GERUDO, getValue('relic-gerudo'));
 		tempFile.writeU32(this.Offsets.RELIC_GORON, getValue('relic-goron'));
 		tempFile.writeU32(this.Offsets.RELIC_RITO, getValue('relic-rito'));
-		
+
 		tempFile.writeU32(this.Offsets.KOROK_SEED_COUNTER, getValue('koroks'));
 		tempFile.writeU32(this.Offsets.DEFEATED_HINOX_COUNTER, getValue('defeated-hinox'));
 		tempFile.writeU32(this.Offsets.DEFEATED_TALUS_COUNTER, getValue('defeated-talus'));
 		tempFile.writeU32(this.Offsets.DEFEATED_MOLDUGA_COUNTER, getValue('defeated-molduga'));
-		
+
 
 		/* MOTORCYCLE */
+		/* 摩托车 */
 		if(this.Offsets.MOTORCYCLE){
 			tempFile.writeU32(this.Offsets.MOTORCYCLE, getField('checkbox-motorcycle').checked?1:0);
 		}
@@ -647,10 +763,11 @@ SavegameEditor={
 
 
 		/* COORDINATES */
+		/* 坐标 */
 		tempFile.writeF32(this.Offsets.PLAYER_POSITION, getValue('pos-x'));
 		tempFile.writeF32(this.Offsets.PLAYER_POSITION+8, getValue('pos-y'));
 		tempFile.writeF32(this.Offsets.PLAYER_POSITION+16, getValue('pos-z'));
-		
+
 		this._writeString(this.Offsets.MAP, getValue('pos-map'))
 		this._writeString(this.Offsets.MAPTYPE, getValue('pos-maptype'))
 
@@ -660,6 +777,7 @@ SavegameEditor={
 
 
 		/* ITEMS */
+		/* 物品 */
 		for(var i=0; i<this.Constants.MAX_ITEMS; i++){
 			if(document.getElementById('number-item'+i) || document.getElementById('select-item'+i))
 				tempFile.writeU32(this._getItemQuantityOffset(i), getValue('item'+i));
@@ -668,17 +786,21 @@ SavegameEditor={
 		}
 
 		/* modifiers */
-		for(var i=0; document.getElementById('select-modifier-weapons-'+i); i++){
-			tempFile.writeU32(this.Offsets.FLAGS_WEAPON+i*8, getValue('modifier-weapons-'+i));
-			tempFile.writeU32(this.Offsets.FLAGSV_WEAPON+i*8, getValue('modifier-weapons-value-'+i));
-		}
-		for(var i=0; document.getElementById('select-modifier-bows-'+i); i++){
-			tempFile.writeU32(this.Offsets.FLAGS_BOW+i*8, getValue('modifier-bows-'+i));
-			tempFile.writeU32(this.Offsets.FLAGSV_BOW+i*8, getValue('modifier-bows-value-'+i));
-		}
-		for(var i=0; document.getElementById('select-modifier-shields-'+i); i++){
-			tempFile.writeU32(this.Offsets.FLAGS_SHIELD+i*8, getValue('modifier-shields-'+i));
-			tempFile.writeU32(this.Offsets.FLAGSV_SHIELD+i*8, getValue('modifier-shields-value-'+i));
+		/* 修饰符 */
+		var modifierCategories=['weapon','bow','shield'];
+		for(var i=0; i<3; i++){
+			var category = modifierCategories[i];
+			var offset = this.Offsets["FLAGS_"+category.toUpperCase()];
+			var valueOffset = this.Offsets["FLAGSV_"+category.toUpperCase()];
+			var container = document.getElementById("container-"+category+"s");
+			for(var j=0; j<container.children.length; j++){
+				var row = container.children[j];
+				var itemNumber = this._getItemNumberFromRow(row);
+				if(row.children[2].children.length===3){ //Check that the rows we are currently at has modifier select and input
+					tempFile.writeU32(offset+itemNumber*8, getValue('modifier-'+category+'s-'+itemNumber));
+					tempFile.writeU32(valueOffset+itemNumber*8, getValue('modifier-'+category+'s-value-'+itemNumber));
+				}
+			}
 		}
 	}
 }
@@ -688,6 +810,7 @@ SavegameEditor={
 
 
 /* TABS */
+/*标签*/
 var availableTabs=['home','weapons','bows','shields','clothes','materials','food','other','horses','master'];
 
 
@@ -698,7 +821,7 @@ function showTab(newTab){
 		document.getElementById('tab-button-'+availableTabs[i]).className=currentTab===availableTabs[i]?'tab-button active':'tab-button';
 		document.getElementById('tab-'+availableTabs[i]).style.display=currentTab===availableTabs[i]?'block':'none';
 	}
-	
+
 	document.getElementById('add-item-button').style.display=(newTab==='home' || newTab==='horses' || newTab==='master')? 'none':'block';
 
 	if(newTab==='master'){
@@ -746,34 +869,35 @@ function setBooleans(hashTable, counterElement){
 
 function unlockKoroks(){
 	var unlockedKoroks=setBooleans(BOTW_Data.KOROKS,'koroks');
-	var offset=SavegameEditor._searchHash(0x64622a86); //HiddenKorok_Complete
+	var offset=SavegameEditor._searchHash(0x64622a86); //HiddenKorok_Complete 隐藏的克洛洛完成
 	tempFile.writeU32(offset+4, 1);
 
 	//search korok seeds in inventory
+	//在库存中搜索korok种子
 	for(var i=0; i<SavegameEditor.Constants.MAX_ITEMS; i++){
 		if(SavegameEditor._loadItemName(i)==='Obj_KorokNuts'){
 			setValue('item'+i, parseInt(getValue('item'+i))+unlockedKoroks);
 			break;
 		}
 	}
-	MarcDialogs.alert('得到了 '+unlockedKoroks+' 颗 [克洛洛的果实]');
+	MarcDialogs.alert('获得了 <span class="msgnb">'+unlockedKoroks+'</span> 个 [<span class="msgnm"> 克洛洛的果实 </span>]');
 }
 
 function defeatAllHinox(){
 	var unlockedKoroks=setBooleans(BOTW_Data.DEFEATED_HINOX,'defeated-hinox');
-	MarcDialogs.alert('打败了 '+unlockedKoroks+' 只 [西诺克斯]');
+	MarcDialogs.alert('打败了 <span class="msgnb">'+unlockedKoroks+'</span> 只 [<span class="msgnm"> 西诺克斯 </span>]');
 }
 function defeatAllTalus(){
 	var unlockedKoroks=setBooleans(BOTW_Data.DEFEATED_TALUS,'defeated-talus');
-	MarcDialogs.alert('打败了 '+unlockedKoroks+' 只 [岩石巨人]');
+	MarcDialogs.alert('打败了 <span class="msgnb">'+unlockedKoroks+'</span> 只 [<span class="msgnm"> 岩石巨人 </span>]');
 }
 function defeatAllMolduga(){
 	var unlockedKoroks=setBooleans(BOTW_Data.DEFEATED_MOLDUGA,'defeated-molduga');
-	MarcDialogs.alert('打败了 '+unlockedKoroks+' 只 [莫尔德拉吉克]');
+	MarcDialogs.alert('打败了 <span class="msgnb">'+unlockedKoroks+'</span> 只 [<span class="msgnm"> 莫尔德拉吉克 </span>]');
 }
 function visitAllLocations(){
 	var missingLocations=setBooleans(BOTW_Data.LOCATIONS);
-	MarcDialogs.alert('访问了 '+missingLocations+' 个未知的地方');
+	MarcDialogs.alert('访问了 <span class="msgnb">'+missingLocations+'</span> 个 [<span class="msgnm"> 未知的地点 </span>]');
 }
 function setCompendiumToStock(){
 	var setToStock=0;
@@ -787,13 +911,14 @@ function setCompendiumToStock(){
 			}
 		}
 	}
-	MarcDialogs.alert(setToStock+' 张照片被重置为库存。<br/>您现在可以安全地删除 <u>pict_book</u> 文件夹下面的所有 .jpg 文件。');
+	MarcDialogs.alert('已经将 <span class="msgnb">'+setToStock+'</span> 张照片重制为库存。<br/> 现在你可以安全的删除<span class="msgnm"><u>pict_book</u>文件夹</span>下的所有图片');
 }
 
 var mapPinCount = 0;
 var MAX_MAP_PINS = 100;
 function loadMapPins(){
 	// Read Pin Types
+	// 读取引脚类型
 	var count = 0;
 	iterateMapPins(function(val){
 		if (val == 0xffffffff){
@@ -801,9 +926,11 @@ function loadMapPins(){
 		}
 		count++;
 		//console.log(count, val)
+		//控制台日志（计数，值）
 		return true;
 	})
 	// to debug saved locations
+	// 调试保存的位置
 	// var i = 0;
 	// iterateMapPinLocations(function(val, offset){
 	// 	if (i % 3 == 0){
@@ -854,11 +981,15 @@ function guessMainFieldGridInternal(xpos, zpos) {
 	// A1 = -4974.629, -3974.629
 	// J8 =  4974.629,  3974.629
 	// X and letter part of grid: west/east
+	// 网格的 X 和字母部分：西/东
 	// Z and number part of grid: north/south
+	// 网格的 Z 和数字部分：北/南
 
 	// grid also visible at https://mrcheeze.github.io/botw-object-map/
+	// 网格也可见于 https://mrcheeze.github.io/botw-object-map/
 
 	// idea: Take position fraction out of the whole grid and divide equally.
+	// idea: 从整个网格中取出position fraction，平分。
 
 	var gridvalX = Math.min(10, Math.max(1, Math.trunc((xpos + 4974.629) / 9949.258 * 10 + 1)))
 	var gridvalZ = Math.min( 8, Math.max(1, Math.trunc((zpos + 3974.629) / 7949.258 * 8  + 1)))
@@ -868,6 +999,7 @@ function guessMainFieldGridInternal(xpos, zpos) {
 
 function clearMapPins(){
 	// types
+	// 类型
 	var count = 0;
 	iterateMapPins(function(val,offset){
 		if (val != 0xffffffff){
@@ -877,7 +1009,7 @@ function clearMapPins(){
 		return true;
 	})
 
-	var count2 =0; 
+	var count2 =0;
 	var i = 0;
 	iterateMapPinLocations(function(val, offset){
 		var expect = i % 3 == 0 ? -100000 : 0;
@@ -893,7 +1025,7 @@ function clearMapPins(){
 	}
 	mapPinCount = 0;
 	setValue('number-map-pins', 0);
-	MarcDialogs.alert('删除了 '+count+' 个地图图钉');
+	MarcDialogs.alert('<span class="msgnm"><u>删除</u></span>了 <span class="msgnb">'+count+'</span> 个 [<span class="msgnm"> 地图图钉 </span>]');
 }
 
 function iterateMapPins(f){
@@ -928,6 +1060,7 @@ function iterateMapPinLocations(f){
 
 function dist(px,py,pz,l){
 	// 2d seems to work better than 3d
+	// 2d 似乎比 3d 效果更好
 	return Math.sqrt((Math.pow(l[0]-px,2))+(Math.pow(l[2]-pz,2)))
 }
 
@@ -942,10 +1075,11 @@ function addToMap(data, icon){
 	for (var i = 0; i<data.length; i++){
 		var l = BOTW_Data.COORDS[data[i]]
 		if (l){
-		   points.push({H:data[i], L:l})
+			points.push({H:data[i], L:l})
 		}
 	}
 	// fill closest first
+	// 先填充最近的
 	points.sort(function(a,b){
 		aDist = dist(px,py,pz,a.L);
 		bDist = dist(px,py,pz,b.L);
@@ -968,6 +1102,7 @@ function addToMap(data, icon){
 
 function addMapPin(icon, location){
 	// add pin to next availible location.
+	// 将 pin 添加到下一个可用位置。
 	iterateMapPins(function(val,offset){
 		if (val == 0xffffffff){
 			tempFile.writeU32(offset, icon)
@@ -996,27 +1131,27 @@ function addMapPin(icon, location){
 
 function addKoroksToMap(){
 	var n = addToMap(BOTW_Data.KOROKS, SavegameEditor.Constants.ICON_TYPES.LEAF);
-	MarcDialogs.alert('将 '+n+' 个剩余的 [克洛洛的果实] 图钉添加到地图');
+	MarcDialogs.alert('将 <span class="msgnb">'+n+'</span> 个剩余的 [<span class="msgnm"> 克洛洛的果实 </span>] 图钉添加到地图');
 }
 
 function addHinoxToMap(){
 	var n = addToMap(BOTW_Data.DEFEATED_HINOX, SavegameEditor.Constants.ICON_TYPES.SKULL);
-	MarcDialogs.alert('将 '+n+' 个剩余的 [西诺克斯] 图钉添加到地图');
+	MarcDialogs.alert('将 <span class="msgnb">'+n+'</span> 个剩余的 [<span class="msgnm"> 西诺克斯 </span>] 图钉添加到地图');
 }
 
 function addTalusToMap(){
 	var n = addToMap(BOTW_Data.DEFEATED_TALUS, SavegameEditor.Constants.ICON_TYPES.SHIELD);
-	MarcDialogs.alert('将 '+n+' 个剩余的 [岩石巨人] 图钉添加到地图');
+	MarcDialogs.alert('将 <span class="msgnb">'+n+'</span> 个剩余的 [<span class="msgnm"> 岩石巨人 </span>] 图钉添加到地图');
 }
 
 function addMoldugaToMap(){
 	var n = addToMap(BOTW_Data.DEFEATED_MOLDUGA, SavegameEditor.Constants.ICON_TYPES.CHEST);
-	MarcDialogs.alert('将 '+n+' 个剩余的 [莫尔德拉吉克] 图钉添加到地图');
+	MarcDialogs.alert('将 <span class="msgnb">'+n+'</span> 个剩余的 [<span class="msgnm"> 莫尔德拉吉克 </span>] 图钉添加到地图');
 }
 
 function addLocationsToMap(){
 	var n = addToMap(BOTW_Data.LOCATIONS, SavegameEditor.Constants.ICON_TYPES.STAR);
-	MarcDialogs.alert('将 '+n+' 个图钉添加到地图');
+	MarcDialogs.alert('将 <span class="msgnb">'+n+'</span> 个图钉添加到地图');
 }
 
 
@@ -1037,13 +1172,13 @@ window.addEventListener('scroll', onScroll, false);
 
 if(typeof String.endsWith==='undefined'){
 	String.prototype.endsWith=function(search){
-        return (new RegExp(search+'$')).test(this)
-    };
+		return (new RegExp(search+'$')).test(this)
+	};
 }
 if(typeof String.startsWith==='undefined'){
 	String.prototype.startsWith=function(search){
-        return (new RegExp('^'+search)).test(this)
-    };
+		return (new RegExp('^'+search)).test(this)
+	};
 }
 
 
