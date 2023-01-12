@@ -378,7 +378,7 @@ function fixNumericFieldValueFromEvent(){fixNumericFieldValue(this)}
 function inputNumber(id,min,max,def){
 	var input=document.createElement('input');
 	input.id='number-'+id;
-	input.className='full-width text-right';
+	input.className='text-right w120';/*input.className='full-width text-right w120';*/
 	input.type='text'; /* type='number' validation breaks getting input value when it's not valid */
 	input.minValue=min;
 	input.maxValue=max;
@@ -420,7 +420,7 @@ function select(id,options,func){
 	}else{
 		select=document.createElement('select');
 		select.id='select-'+id;
-		select.className='full-width';
+		select.className='w320';/*select.className='full-width w320';*/
 	}
 	if(options){
 		for(var i=0; i<options.length; i++){

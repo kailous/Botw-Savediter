@@ -1,0 +1,10 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="save">
+        <path id="Vector"
+              d="M4.66667 8.66667H11.3333M4.66667 11.3333H8.00277M3 2C2.44772 2 2 2.44772 2 3V13C2 13.5523 2.44772 14 3 14H13C13.5523 14 14 13.5523 14 13V4.40217L11.4271 2H3Z"
+              stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path id="Vector_2"
+              d="M8.00276 2L7.99999 4.46153C7.99999 4.57483 7.85076 4.66667 7.66666 4.66667H4.99999C4.81589 4.66667 4.66666 4.57483 4.66666 4.46153V2"
+              stroke="#fff" stroke-width="1.5"/>
+    </g>
+</svg>
