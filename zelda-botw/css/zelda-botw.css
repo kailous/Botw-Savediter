@@ -4,15 +4,26 @@
 /* @FONT-FACES */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800');
 /* APP窗口配置 - 开始 */
-html {
-	-webkit-app-region: drag;
-	-webkit-user-select: none;
-	-webkit-app-region: drag;
-}
+/*html {*/
+/*	-webkit-app-region: drag;*/
+/*	-webkit-user-select: none;*/
+/*	-webkit-app-region: drag;*/
+/*}*/
 button {
 	-webkit-app-region: no-drag;
 }
 /* APP窗口配置 - 结束 */
+
+#the-editor select {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: url(../assets/Drop-down.svg) no-repeat right center transparent;
+}
+#the-editor input[type=text], #the-editor input[type=number], #the-editor select {
+	border-radius: 10px !important;
+	padding-left: 15px;
+}
 
 body{
 	font:15px 'Open Sans',sans-serif;
