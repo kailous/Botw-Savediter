@@ -1,4 +1,4 @@
-![](zelda-botw/thumb.jpg)
+![](zelda-botw/cover.png)
 # Botw---Savediter
 塞尔达传说：旷野之息 游戏存档修改器
 
