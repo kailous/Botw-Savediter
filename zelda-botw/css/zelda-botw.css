@@ -1,13 +1,14 @@
 /* Zelda BOTW Savegame editor by Marc Robledo v20200215 */
 /* minify at https://cssminifier.com/ + https://www.base64-image.de/ (sprites */
 
+
 /* @FONT-FACES */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800');
+/*@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800');*/
 /* APP窗口配置 - 开始 */
 html {
 	-webkit-app-region: drag;
 	-webkit-user-select: none;
-	-webkit-app-region: drag;
+	/*-webkit-app-region: drag;*/
 }
 button {
 	-webkit-app-region: no-drag;
@@ -69,8 +70,8 @@ body{
 	font:15px 'Open Sans',sans-serif;
 	cursor:default;
 	margin:180px 0 80px;
-	background-color:#160c0c;
-	color:#f9f5da;
+	background-color: rgb(22, 12, 12);
+	color: rgb(249, 245, 218);
 	background-image:url(../assets/bg_black.jpg);
 }
 
@@ -80,9 +81,10 @@ body{
 table{
   border-collapse:collapse;
 }
-tr{border-bottom:1px solid #452e2e;height:36px}
+tr{border-bottom:1px solid rgb(69, 46, 46);height:36px}
 tr:last-child{border-bottom:none}
-tr:hover{background-color:#250e0e}
+tr:hover{background-color: rgb(37, 14, 14)
+}
 
 
 
@@ -118,12 +120,12 @@ tr:hover{background-color:#250e0e}
 	background-color:rgba(19,1,1,.4);
 	backdrop-filter: blur(4px);
 	position:relative;
-	margin-bottom:0px;
+	margin-bottom:0;
 	padding:10px;
 }
 /*.row-items img{max-width:100%}*/
 .row-items .item-name:hover{text-decoration:underline}
-.item-number{position:absolute;top:0;left:0; color:#444;font-family:monospace;font-size:80%}
+.item-number{position:absolute;top:0;left:0; color: rgb(68, 68, 68);font-family:monospace;font-size:80%}
 .tiles span{display:block}
 
 /* useful classes */
@@ -140,33 +142,56 @@ tr:hover{background-color:#250e0e}
 .round{border-radius:3px}
 /* colors */
 .bg-light-gray{background-color:rgba(216,216,216,.99)}
-.bg-mid-gray{background-color:rgba(144,144,144,.99);color:white}
-.bg-dark-gray{background-color:rgba(72,72,72,.99);color:white}
-.bg-red{background-color:#e74c3c}
-.bg-orange{background-color:#f39c12}
-.bg-blue{background-color:#3498db}
-.bg-green{background-color:#25ba84}
-.fnt-white{color:white}
-.fnt-light-gray{color:#d8d8d8}
-.fnt-mid-gray{color:#909090}
-.fnt-dark-gray{color:#48484}
-.fnt-red{color:#e74c3c}
-/*.fnt-red{color:#fe5d05}*/
-.fnt-orange{color:#f39c12}
-/*.fnt-orange{color:#feb806}*/
-.fnt-blue{color:#3498db}
-.fnt-green{color:#25ba84}
-/*.fnt-green{color:#9ac430}*/
-.border-white{border-color:white}
-.border-light-gray{border-color:#d8d8d8}
-.border-mid-gray{border-color:#909090}
-.border-dark-gray{border-color:#48484}
-.border-red{border-color:#e74c3c}
-.border-orange{border-color:#f39c12}
-.border-blue{border-color:#3498db}
-.border-green{border-color:#25ba84}
-.msgnb {color: #2D9AFF;}
-.msgnm {color: #E05418;}
+.bg-mid-gray{background-color:rgba(144,144,144,.99);color: rgb(255, 255, 255)
+}
+.bg-dark-gray{background-color:rgba(72,72,72,.99);color: rgb(255, 255, 255)
+}
+.bg-red{background-color: rgb(231, 76, 60)
+}
+.bg-orange{background-color: rgb(243, 156, 18)
+}
+.bg-blue{background-color: rgb(52, 152, 219)
+}
+.bg-green{background-color: rgb(37, 186, 132)
+}
+.fnt-white{color: rgb(255, 255, 255)
+}
+.fnt-light-gray{color: rgb(216, 216, 216)
+}
+.fnt-mid-gray{color: rgb(144, 144, 144)
+}
+/*.fnt-dark-gray{color:#48484}*/
+.fnt-red{color: rgb(231, 76, 60)
+}
+.fnt-red{color: rgb(254, 93, 5)
+}
+.fnt-orange{color: rgb(243, 156, 18)
+}
+.fnt-orange{color: rgb(254, 184, 6)
+}
+.fnt-blue{color: rgb(52, 152, 219)
+}
+.fnt-green{color: rgb(37, 186, 132)
+}
+.fnt-green{color: rgb(154, 196, 48)
+}
+.border-white{border-color: rgb(255, 255, 255)
+}
+.border-light-gray{border-color: rgb(216, 216, 216)
+}
+.border-mid-gray{border-color: rgb(144, 144, 144)
+}
+/*.border-dark-gray{border-color:#48484}*/
+.border-red{border-color: rgb(231, 76, 60)
+}
+.border-orange{border-color: rgb(243, 156, 18)
+}
+.border-blue{border-color: rgb(52, 152, 219)
+}
+.border-green{border-color: rgb(37, 186, 132)
+}
+.msgnb {color: rgb(45, 154, 255);}
+.msgnm {color: rgb(224, 84, 24);}
 /* Icons */
 span.sprite,span.icon,button.with-icon:before{
 	display:inline-block;
@@ -180,7 +205,7 @@ button.button.with-icon {
 	flex-direction: row;
 	gap: 10px;
 	border-radius: 18px;
-	color: #fff;
+	color: rgb(255, 255, 255);
 }
 button.with-icon.icon1:before {
 	margin-right: 10px;
@@ -192,21 +217,21 @@ span.icon,button.with-icon:before{
 	content:""
 }
 .svgicon {
-	fill: #fff;
-	color: #fff;
-	stroke: #fff;
+	fill: rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
+	stroke: rgb(255, 255, 255);
 }
 button.with-icon.icon0:before{background-position:-0px -16px}
 button.with-icon.icon1:before{background-image: url(../assets/add.svg); /*background-position:-16px -16px;*/}
 button.with-icon.icon2:before{background-position:-32px -16px}
-button.with-icon.icon3 {background-color: #6A4B4B !important;}
+button.with-icon.icon3 {background-color: rgb(106, 75, 75) !important;}
 button.with-icon.icon3:before{background-image: url(../assets/close.svg); /*background-position:-48px -16px;*/}
 button.with-icon.icon4:before{background-position:-64px -16px}
 button.with-icon.icon5:before{background-position:-80px -16px}
 button.with-icon.icon6:before{background-position:-96px -16px}
 button.with-icon.icon7:before{background-position:-112px -16px}
 button.with-icon.icon8:before{background-position:-128px -16px}
-button.with-icon.icon9 {background-color: #2D9AFF !important;}
+button.with-icon.icon9 {background-color: rgb(45, 154, 255) !important;}
 button.with-icon.icon9:before{background-image: url(../assets/save.svg); /*background-position:-144px -16px;*/}
 button.with-icon.icon10:before{background-position:-160px -16px}
 button.with-icon.colored.icon0:before{background-position:-0px -32px}
@@ -220,19 +245,30 @@ button.with-icon.colored.icon7:before{background-position:-112px -32px}
 button.with-icon.colored.icon8:before{background-position:-128px -32px}
 button.with-icon.colored.icon9:before{background-position:-144px -32px}
 button.with-icon.colored.icon10:before{background-position:-160px -32px}
-span.icon.icon0,button.with-icon.transparent.icon0:before{background-position:-0px 0px}
-span.icon.icon1,button.with-icon.transparent.icon1:before{background-position:-16px 0px}
-span.icon.icon2,button.with-icon.transparent.icon2:before{background-position:-32px 0px}
-span.icon.icon3,button.with-icon.transparent.icon3:before{background-position:-48px 0px}
-span.icon.icon4,button.with-icon.transparent.icon4:before{background-position:-64px 0px}
-span.icon.icon5,button.with-icon.transparent.icon5:before{background-position:-80px 0px}
-span.icon.icon6,button.with-icon.transparent.icon6:before{background-position:-96px 0px}
-span.icon.icon7,button.with-icon.transparent.icon7:before{background-position:-112px 0px}
-span.icon.icon8,button.with-icon.transparent.icon8:before{background-position:-128px 0px}
-span.icon.icon9,button.with-icon.transparent.icon9:before{background-position:-144px 0px}
-span.icon.icon10,button.with-icon.transparent.icon10:before{background-position:-160px 0px}
+span.icon.icon0,button.with-icon.transparent.icon0:before{background-position:-0px 0
+}
+span.icon.icon1,button.with-icon.transparent.icon1:before{background-position:-16px 0
+}
+span.icon.icon2,button.with-icon.transparent.icon2:before{background-position:-32px 0
+}
+span.icon.icon3,button.with-icon.transparent.icon3:before{background-position:-48px 0
+}
+span.icon.icon4,button.with-icon.transparent.icon4:before{background-position:-64px 0
+}
+span.icon.icon5,button.with-icon.transparent.icon5:before{background-position:-80px 0
+}
+span.icon.icon6,button.with-icon.transparent.icon6:before{background-position:-96px 0
+}
+span.icon.icon7,button.with-icon.transparent.icon7:before{background-position:-112px 0
+}
+span.icon.icon8,button.with-icon.transparent.icon8:before{background-position:-128px 0
+}
+span.icon.icon9,button.with-icon.transparent.icon9:before{background-position:-144px 0
+}
+span.icon.icon10,button.with-icon.transparent.icon10:before{background-position:-160px 0
+}
 span.sprite{width:24px;height:24px}
-span.sprite.github{background-position:0px -48px;width:16px;height:16px; margin-right:5px}
+span.sprite.github{background-position:0 -48px;width:16px;height:16px; margin-right:5px}
 span.sprite.heart{background-position:-16px -48px;width:16px;height:16px; margin-right:5px}
 button.with-icon.file-load:before{background-position:-32px -48px;width:20px;height:20px; margin-right:8px}
 
@@ -248,7 +284,7 @@ button.with-icon.file-load:before{background-position:-32px -48px;width:20px;hei
 }
 .tab-button.active{
 	/*border-color:#d3af61;*/
-	background-color: white;
+	background-color: rgb(255, 255, 255);
 	box-shadow: none;
 }
 .twelve.columns.text-center {
@@ -287,12 +323,12 @@ i.tab-icon.master{background-position-x:-288px;}
 
 /* header+toolbar+footer */
 #header{
-	color:#333;
+	color: rgb(51, 51, 51);
 	position:absolute;
 	top:0;left:0;
 	width:100%;
 	z-index:100;
-	background-color:#faf8f7;
+	background-color: rgb(250, 248, 247);
 	background-image:url(../assets/bg_white.jpg);
 }
 #header:after{
@@ -302,7 +338,7 @@ i.tab-icon.master{background-position-x:-288px;}
 	left:0;
 	width:100%;
 	height:3px;
-	background-image:linear-gradient(to right, #0f0404 0%, #b99f65 40%, #b99f65 40%, #b99f65 65%, #0f0404 100%);
+	background-image:linear-gradient(to right, rgb(15, 4, 4) 0%, rgb(185, 159, 101) 40%, rgb(185, 159, 101) 40%, rgb(185, 159, 101) 65%, rgb(15, 4, 4) 100%);
 
 	content:"";
 }
@@ -319,54 +355,55 @@ i.tab-icon.master{background-position-x:-288px;}
 	font-size:85%
 }
 .header-buttons a.author{
-	color:#333;
+	color: rgb(51, 51, 51);
 	text-decoration:none;
-	border-bottom:1px solid #d3cec3;
+	border-bottom:1px solid rgb(211, 206, 195);
 	margin-right:10px
 }
 .header-buttons a.author:hover{
-	border-color:#83d8ff
+	border-color: rgb(131, 216, 255)
 }
 .header-buttons a.button{
 	text-decoration:none;
-	color:white;
-	background-color:#1a415d;
+	color: rgb(255, 255, 255);
+	background-color: rgb(26, 65, 93);
 	padding:10px 20px;
 	border-radius:3px
 }
 .header-buttons a.button:hover{
-	background-color:#153044
+	background-color: rgb(21, 48, 68)
 }
 
 .donate.button{
-	background-color:#51a451 !important;
+	background-color: rgb(81, 164, 81) !important;
 
 	/*text-shadow:0 -1px 0 #37a137 !important;
 	background:radial-gradient(#60bd60,#398a39);*/
 	animation:donateglow 2s infinite
 }
-.donate.button:hover{background-color:#3e903e !important}
+.donate.button:hover{background-color: rgb(62, 144, 62) !important}
 @keyframes donateglow{
 	0%{box-shadow:none}
-	50%{box-shadow:#d8ff7c 0 0 8px inset}
+	50%{box-shadow: rgb(216, 255, 124) 0 0 8px inset}
 	100%{box-shadow:none}
 }
 
 
 
 
-hr{border:none;border-top:1px dotted #bbb;margin:15px 0}
+hr{border:none;border-top:1px dotted rgb(187, 187, 187);margin:15px 0}
 h3{
-	border-bottom:2px solid #888;
+	border-bottom:2px solid rgb(136, 136, 136);
 	font-size:135%;
 	padding:10px 0;
 	text-transform:uppercase;
-	color:#b99f65
+	color: rgb(185, 159, 101)
 }
 
 table{width:100%}
 /*tbody tr:nth-child(even){background-color:#f2f2f2}*/
-th{background-color:#d4d4d4}
+th{background-color: rgb(212, 212, 212)
+}
 
 
 
@@ -377,39 +414,40 @@ input[type=text],input[type=number],select{
 	/*width:100%;*/
 	/*max-width:90%;*/
 	font:100% 'Open Sans', sans-serif;
-	border:1px solid #888;
+	border:1px solid rgb(136, 136, 136);
 	border-radius:2px;
 	box-sizing:border-box
 }
 input[type=text]:hover,input[type=number]:hover,select:hover{
-	border-color:#666
+	border-color: rgb(102, 102, 102)
 }
 input[type=text]:focus,input[type=number]:focus,select:focus{
-	box-shadow:#63bce5 0 0 4px 1px;
-	border-color:#47a8df
+	box-shadow: rgb(99, 188, 229) 0 0 4px 1px;
+	border-color: rgb(71, 168, 223)
 }
 input[type=text].error,input[type=number].error,select.error{
-	box-shadow:#f88 0 0 4px 1px;
-	border-color:red
+	box-shadow: rgb(255, 136, 136) 0 0 4px 1px;
+	border-color: rgb(255, 0, 0)
 }
 input[type=text].small,input[type=number].small,select.small{width:70px}
 input[type=text].medium,input[type=number].medium,select.medium{width:130px}
 .full-width{width:100% !important;max-width:100% !important}
-optgroup{background-color:black}
+optgroup{background-color: rgb(0, 0, 0)
+}
 
 #the-editor input[type=text],#the-editor input[type=number],#the-editor select{
-	border:1px solid #444;
+	border:1px solid rgb(68, 68, 68);
 	border-radius:2px;
-	background-color:#111;
-	color:white;
+	background-color: rgb(17, 17, 17);
+	color: rgb(255, 255, 255);
 }
 #the-editor input[type=text]:hover,#the-editor input[type=number]:hover,#the-editor select:hover{
-	border-color:#666
+	border-color: rgb(102, 102, 102)
 }
 #the-editor input[type=text]:focus,#the-editor input[type=number]:focus,#the-editor select:focus{
 	box-shadow:rgba(185,159,101,.5) 0 0 4px 1px;
-	background-color:#222;
-	border-color:#b99f65
+	background-color: rgb(34, 34, 34);
+	border-color: rgb(185, 159, 101)
 }
 
 
@@ -425,9 +463,9 @@ button{
 	border: none;
 	padding: 7px 12px;
 	margin: 0;
-	background-color: #f0f0f0;
+	background-color: rgb(240, 240, 240);
 
-	color: #333;
+	color: rgb(51, 51, 51);
 
 	box-sizing: border-box;
 
@@ -437,17 +475,17 @@ button.small{
 }
 button:hover{
     text-shadow:none;
-    border-color:#999999
+    border-color: rgb(153, 153, 153)
 }
 button:active,button.active{
-    background:#2D9AFF !important;
+    background: rgb(45, 154, 255) !important;
     transform:translate(0px,1px);
-    border-color:#888;
+    border-color: rgb(136, 136, 136);
     text-shadow:none;
 
     /*box-shadow:0 2px 8px -3px rgba(0, 0, 0, 0.5) inset;*/
-	background-color:#eeeeee;
-	transform:translateY(1px)
+	/*background-color:#eeeeee;*/
+	/*transform:translateY(1px)*/
 }
 button:active > i.tab-icon,button.active > i.tab-icon {
 	background-image:url('../assets/tabs-active.svg');
@@ -455,7 +493,7 @@ button:active > i.tab-icon,button.active > i.tab-icon {
 button:focus{}
 button:disabled{opacity:.35}
 
-button.colored{color:white !important;margin: 0;}
+button.colored{color: rgb(255, 255, 255) !important;margin: 0;}
 /*button.colored.blue{*/
 /*	box-shadow:0 1px 0 rgba(120, 200, 230, 0.5) inset;*/
 /*	background-color:#21759B;*/
@@ -473,72 +511,72 @@ button.colored.blue:hover{
 }
 button.colored.blue:active{
 	box-shadow:0 2px 8px -3px rgba(0, 0, 0, 0.5) inset;
-	background:linear-gradient(to bottom, #21759B, #278AB7) repeat scroll 0 0 #1B607F;
-	border-color:#124560 #0e74a3 #0e74a3;
-	text-shadow:0 -1px 0 #177ea4
+	background:linear-gradient(to bottom, rgb(33, 117, 155), rgb(39, 138, 183)) repeat scroll 0 0 rgb(27, 96, 127);
+	border-color: rgb(18, 69, 96) rgb(14, 116, 163) rgb(14, 116, 163);
+	text-shadow:0 -1px 0 rgb(23, 126, 164)
 }
 
 button.colored.red{
-	box-shadow:0 1px 0 #df4c45 inset;
-	background-color:#b72319;
-	background-image:linear-gradient(to bottom, #ce271d, #a41f17);
-	border-color:#a41f17 #a41f17 #951d15;
-	text-shadow:0 -1px 0 #a01d15
+	box-shadow:0 1px 0 rgb(223, 76, 69) inset;
+	background-color: rgb(183, 35, 25);
+	background-image:linear-gradient(to bottom, rgb(206, 39, 29), rgb(164, 31, 23));
+	border-color: rgb(164, 31, 23) rgb(164, 31, 23) rgb(149, 29, 21);
+	text-shadow:0 -1px 0 rgb(160, 29, 21)
 }
 button.colored.red:hover{
-	box-shadow:0 1px 0 #e8564f inset !important;
-	background-color:#bf261c !important;
-	background-image:linear-gradient(to bottom, #db2c20, #a52017) !important;
-	border-color:#871a13 !important;
-	text-shadow:0 -1px 0 #8b1b14 !important
+	box-shadow:0 1px 0 rgb(232, 86, 79) inset !important;
+	background-color: rgb(191, 38, 28) !important;
+	background-image:linear-gradient(to bottom, rgb(219, 44, 32), rgb(165, 32, 23)) !important;
+	border-color: rgb(135, 26, 19) !important;
+	text-shadow:0 -1px 0 rgb(139, 27, 20) !important
 }
 button.colored.red:active{
 	box-shadow:0 2px 8px -3px rgba(0, 0, 0, 0.5) inset !important;
-	background:linear-gradient(to bottom, #a51f17, #c1251b) repeat scroll 0 0 #b22118 !important;
-	border-color:#66140c #a0150d #a0150d !important;
-	text-shadow:0 -1px 0 #a41e17 !important
+	background:linear-gradient(to bottom, rgb(165, 31, 23), rgb(193, 37, 27)) repeat scroll 0 0 rgb(178, 33, 24) !important;
+	border-color: rgb(102, 20, 12) rgb(160, 21, 13) rgb(160, 21, 13) !important;
+	text-shadow:0 -1px 0 rgb(164, 30, 23) !important
 }
 
 button.colored.green{
-	box-shadow:0 1px 0 #81cf81 inset !important;
-	background-color:#59b259 !important;
-	background-image:linear-gradient(to bottom, #61c261, #51a351) !important;
-	border-color:#52a452 #4f9f4f #448944 !important;
-	text-shadow:0 -1px 0 #37a137 !important
+	box-shadow:0 1px 0 rgb(129, 207, 129) inset !important;
+	background-color: rgb(89, 178, 89) !important;
+	background-image:linear-gradient(to bottom, rgb(97, 194, 97), rgb(81, 163, 81)) !important;
+	border-color: rgb(82, 164, 82) rgb(79, 159, 79) rgb(68, 137, 68) !important;
+	text-shadow:0 -1px 0 rgb(55, 161, 55) !important
 }
 button.colored.green:hover{
-	box-shadow:0 1px 0 #99de99 inset !important;
-	background-color:#278AB7 !important;
-	background-image:linear-gradient(to bottom, #64ce64, #51a351) !important;
-	border-color:#3f7f3f !important;
-	text-shadow:0 -1px 0 #1c9216 !important
+	box-shadow:0 1px 0 rgb(153, 222, 153) inset !important;
+	background-color: rgb(39, 138, 183) !important;
+	background-image:linear-gradient(to bottom, rgb(100, 206, 100), rgb(81, 163, 81)) !important;
+	border-color: rgb(63, 127, 63) !important;
+	text-shadow:0 -1px 0 rgb(28, 146, 22) !important
 }
 button.colored.green:active{
 	box-shadow:0 2px 8px -3px rgba(0, 0, 0, 0.5) inset !important;
-	background:linear-gradient(to bottom, #1e8f22, #23a627) repeat scroll 0 0 #219b24 !important;
-	border-color:#105815 #17941b #17941b !important;
-	text-shadow:0 -1px 0 #17a417 !important
+	background:linear-gradient(to bottom, rgb(30, 143, 34), rgb(35, 166, 39)) repeat scroll 0 0 rgb(33, 155, 36) !important;
+	border-color: rgb(16, 88, 21) rgb(23, 148, 27) rgb(23, 148, 27) !important;
+	text-shadow:0 -1px 0 rgb(23, 164, 23) !important
 }
 
 button.colored.orange{
-	box-shadow:0 1px 0 #ffb519 inset !important;
-	background-color:#e69501 !important;
-	background-image:linear-gradient(to bottom, #fda502, #d08400) !important;
-	border-color:#d38500 #c97e00 #b46f00 !important;
-	text-shadow:0 -1px 0 #8f5901 !important
+	box-shadow:0 1px 0 rgb(255, 181, 25) inset !important;
+	background-color: rgb(230, 149, 1) !important;
+	background-image:linear-gradient(to bottom, rgb(253, 165, 2), rgb(208, 132, 0)) !important;
+	border-color: rgb(211, 133, 0) rgb(201, 126, 0) rgb(180, 111, 0) !important;
+	text-shadow:0 -1px 0 rgb(143, 89, 1) !important
 }
 button.colored.orange:hover{
-	box-shadow:0 1px 0 #ffc03c inset !important;
-	background-color:#e69501 !important;
-	background-image:linear-gradient(to bottom, #ffb01e, #d08400) !important;
-	border-color:#a36300 !important;
-	text-shadow:0 -1px 0 #95620f !important
+	box-shadow:0 1px 0 rgb(255, 192, 60) inset !important;
+	background-color: rgb(230, 149, 1) !important;
+	background-image:linear-gradient(to bottom, rgb(255, 176, 30), rgb(208, 132, 0)) !important;
+	border-color: rgb(163, 99, 0) !important;
+	text-shadow:0 -1px 0 rgb(149, 98, 15) !important
 }
 button.colored.orange:active{
 	box-shadow:0 2px 8px -3px rgba(0, 0, 0, 0.5) inset !important;
-	background:linear-gradient(to bottom, #c07400, #ed9500) repeat scroll 0 0 #219b24 !important;
-	border-color:#53400b #886912 #886912 !important;
-	text-shadow:0 -1px 0 #654e0e !important
+	background:linear-gradient(to bottom, rgb(192, 116, 0), rgb(237, 149, 0)) repeat scroll 0 0 rgb(33, 155, 36) !important;
+	border-color: rgb(83, 64, 11) rgb(136, 105, 18) rgb(136, 105, 18) !important;
+	text-shadow:0 -1px 0 rgb(101, 78, 14) !important
 }
 
 
@@ -550,10 +588,11 @@ button.transparent{
 	text-decoration:underline;
 	border:none;
 	text-shadow:none;
-	color:black !important
+	color: rgb(0, 0, 0) !important
 }
 button.transparent:hover{background-color:rgba(0,0,0,.05)}
-button.no-text.with-icon:before{margin-right:0px}
+button.no-text.with-icon:before{margin-right:0
+}
 
 
 
@@ -576,8 +615,8 @@ button.no-text.with-icon:before{margin-right:0px}
 
 /* MarcDragAndDrop */
 #dragzone{
-	border:4px dashed #b99f65;
-	color:#b99f65;
+	border:4px dashed rgb(185, 159, 101);
+	color: rgb(185, 159, 101);
 	text-align:center;
 	border-radius:8px;
 	position:relative;
@@ -586,9 +625,9 @@ button.no-text.with-icon:before{margin-right:0px}
 	/*font-weight:bold;*/
 }
 .dragging-files #dragzone{
-	border-color:#3498db;
-	color:#3498db;
-	background-color:white
+	border-color: rgb(52, 152, 219);
+	color: rgb(52, 152, 219);
+	background-color: rgb(255, 255, 255)
 }
 #dragzone-message{
 	font-size:180%;
@@ -604,24 +643,26 @@ button.no-text.with-icon:before{margin-right:0px}
 	top:80px;
 }
 #demo:hover{
-	background-color:#bbb;
-	color:#000
+	background-color: rgb(187, 187, 187);
+	color: rgb(0, 0, 0)
 }
 
 #warning{
 	position:fixed;
 	bottom:-80px;
 	width:100%;
-	background-color:#a30202;
+	background-color: rgb(163, 2, 2);
 	background-color:rgba(164,0,0,.96);
-	color:white;
+	color: rgb(255, 255, 255);
 	transition:bottom .5s
 }
-#warning.visible{bottom:0px}
-#warning:hover{background-color:#b31212}
+#warning.visible{bottom:0
+}
+#warning:hover{background-color: rgb(179, 18, 18)
+}
 #warning u{
-	background-color:white;
-	color:#b31212;
+	background-color: rgb(255, 255, 255);
+	color: rgb(179, 18, 18);
 	text-decoration:none;
 	padding:6px 16px;
 	border-radius:3px;
@@ -635,7 +676,7 @@ button.no-text.with-icon:before{margin-right:0px}
 
 /* responsive */
 @media only screen and (max-width:961px){
-	.wrapper{max-width:auto; padding-left:10px;padding-right:10px;}
+	/*.wrapper{max-width:auto; padding-left:10px;padding-right:10px;}*/
 }
 @media only screen and (max-width:721px){
 	#header .columns-6,#header .columns.six{width:100%;text-align:center}
@@ -651,7 +692,8 @@ button.no-text.with-icon:before{margin-right:0px}
 
 
 /* MarcDialogs */
-#dialog-about{background-color:#ffd823}
+#dialog-about{background-color: rgb(255, 216, 35)
+}
 
 
 
@@ -661,7 +703,7 @@ button.no-text.with-icon:before{margin-right:0px}
 .dialog-overlay{
 	transition:visibility 0s .2s, opacity .2s;
 
-	background-color:black;
+	background-color: rgb(0, 0, 0);
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";/* IE8 */
 	background-color:rgba(255,255,255,.65)
 }
@@ -677,7 +719,7 @@ button.no-text.with-icon:before{margin-right:0px}
 
 	background: rgba(0, 0, 0, 0.8);
 	border: 0.5px solid rgba(0, 103, 223, 0.3);
-	box-shadow: 0px 34px 30px -21px rgba(33, 7, 7, 0.75), inset 0px 0px 214px rgba(0, 113, 196, 0.16);
+	box-shadow: 0 34px 30px -21px rgba(33, 7, 7, 0.75), inset 0 0 214px rgba(0, 113, 196, 0.16);
 	backdrop-filter: blur(12px);
 
 	border-radius: 10px;
@@ -686,21 +728,21 @@ button.no-text.with-icon:before{margin-right:0px}
 	max-width:100%;
 
 	line-height:100%;
-	color:#333;
+	color: rgb(51, 51, 51);
 }
 .dialog.active img {
-	width: 134.87px;
+	width: 135px;
 	height: 36px;
 }
 .dialog.active hr {
-	width: -webkit-fill-available;
-	border: 2px solid #FFFFFF;
+	width: 100%;
+	border: 2px solid rgb(255, 255, 255);
 }
 .dialog.active .msgtext , #dialog-warning{
 	font-style: normal;
 	font-weight: 700;
 	font-size: 24px;
-	color: #fff;
+	color: rgb(255, 255, 255);
 	line-height:120%;
 }
 .dialog.active hr,.dialog.active .buttons {
@@ -715,11 +757,11 @@ button.no-text.with-icon:before{margin-right:0px}
 	width: 111px;
 	height: 35px;
 
-	background: #E05418;
+	background: rgb(224, 84, 24);
 	border-radius: 18px;
 
 	font-weight: 700;
-	color: #fff;
+	color: rgb(255, 255, 255);
 }
 /*#dialog-warning {*/
 /*	font-style: normal;*/
@@ -732,7 +774,7 @@ button.no-text.with-icon:before{margin-right:0px}
 	font-weight: 700;
 	font-size: 15px;
 	line-height: 100%;
-	color: #fff;
+	color: rgb(255, 255, 255);
 }
 .dialog.active{transform:translateY(0px)}
 
@@ -743,8 +785,8 @@ button.no-text.with-icon:before{margin-right:0px}
 
 /* MarcTooltips */
 .tooltip{
-	background-color:#eee;
-	color:#333;
+	background-color: rgb(238, 238, 238);
+	color: rgb(51, 51, 51);
 	padding:10px;
 	visibility:hidden;
 	opacity:0;
@@ -754,8 +796,8 @@ button.no-text.with-icon:before{margin-right:0px}
 	font-size:80%;
 }
 .tooltip.dark{
-	background-color:#333;
-	color:#eee
+	background-color: rgb(51, 51, 51);
+	color: rgb(238, 238, 238)
 }
 
 /* separation */
@@ -774,10 +816,10 @@ button.no-text.with-icon:before{margin-right:0px}
 /* arrow */
 .tooltip:before{width:0;height:0;position:absolute;content:""}
 
-.tooltip.position-down:before{top:-4px;border-bottom:5px solid #eee;border-left:5px solid transparent;border-right:5px solid transparent}
-.tooltip.position-up:before{bottom:-4px;border-top:5px solid #eee;border-left:5px solid transparent;border-right:5px solid transparent}
-.tooltip.position-left:before{right:-4px;border-left: 5px solid #eee;border-top:5px solid transparent;border-bottom: 5px solid transparent}
-.tooltip.position-right:before{left:-4px;border-right:5px solid #eee;border-top: 5px solid transparent;border-bottom: 5px solid transparent}
+.tooltip.position-down:before{top:-4px;border-bottom:5px solid rgb(238, 238, 238);border-left:5px solid transparent;border-right:5px solid transparent}
+.tooltip.position-up:before{bottom:-4px;border-top:5px solid rgb(238, 238, 238);border-left:5px solid transparent;border-right:5px solid transparent}
+.tooltip.position-left:before{right:-4px;border-left: 5px solid rgb(238, 238, 238);border-top:5px solid transparent;border-bottom: 5px solid transparent}
+.tooltip.position-right:before{left:-4px;border-right:5px solid rgb(238, 238, 238);border-top: 5px solid transparent;border-bottom: 5px solid transparent}
 
 .tooltip.position-vertical.align-left:before{left:4px}
 .tooltip.position-vertical.align-center:before{left:50%;margin-left:-4px}
@@ -787,24 +829,28 @@ button.no-text.with-icon:before{margin-right:0px}
 .tooltip.position-horizontal.align-center:before{top:50%;margin-top:-4px}
 .tooltip.position-horizontal.align-bottom:before{bottom:4px}
 
-.tooltip.dark.position-down:before{border-bottom:5px solid #333}
-.tooltip.dark.position-up:before{border-top:5px solid #333}
-.tooltip.dark.position-left:before{border-left: 5px solid #333}
-.tooltip.dark.position-right:before{border-right:5px solid #333}
+.tooltip.dark.position-down:before{border-bottom:5px solid rgb(51, 51, 51)
+}
+.tooltip.dark.position-up:before{border-top:5px solid rgb(51, 51, 51)
+}
+.tooltip.dark.position-left:before{border-left: 5px solid rgb(51, 51, 51)
+}
+.tooltip.dark.position-right:before{border-right:5px solid rgb(51, 51, 51)
+}
 
 
 .tooltip.position-down:before{
 	border-left:5px solid transparent;
 	border-right:5px solid transparent;
 
-	border-bottom:5px solid #eee;
+	border-bottom:5px solid rgb(238, 238, 238);
 	top:-5px;
 }
 .tooltip.position-up:before{
 	border-left:5px solid transparent;
 	border-right:5px solid transparent;
 
-	border-top:5px solid #eee;
+	border-top:5px solid rgb(238, 238, 238);
 	bottom:-5px;
 }
 .tooltip.position-vertical.align-left .arrow{left:3px}
@@ -815,14 +861,14 @@ button.no-text.with-icon:before{margin-right:0px}
 	border-top:5px solid transparent;
 	border-bottom: 5px solid transparent;
 
-	border-left: 5px solid #eee;
+	border-left: 5px solid rgb(238, 238, 238);
 	right:-5px;
 }
 .tooltip.position-right .arrow{
 	border-top: 5px solid transparent;
 	border-bottom: 5px solid transparent; 
 
-	border-right:5px solid #eee; 
+	border-right:5px solid rgb(238, 238, 238);
 	left:-5px;
 }
 .tooltip.position-horizontal.align-top .arrow{top:3px}
@@ -838,5 +884,5 @@ span.tips {
 	padding: 10px;
 	margin: 10px 0;
 	border-radius: 10px;
-	color: #4f2608;
+	color: rgb(79, 38, 8);
 }
