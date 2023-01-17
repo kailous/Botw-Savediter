@@ -85,7 +85,6 @@ button {
 
 #treatCoke_bg {
     transition: visibility 0s .2s, opacity .2s;
-    background-color: #300303;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
     background-color: #FFFFFFA5;
 }
