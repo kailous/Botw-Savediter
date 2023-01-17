@@ -32,6 +32,7 @@
 	<link rel="apple-touch-icon" href="favicon.png">
 	<!-- 样式库 -->
 	<link type="text/css" rel="stylesheet" href="css/zelda-botw.css" media="all"/>
+	<link type="text/css" rel="stylesheet" href="css/var.css" media="all"/>
 	<!-- js库 -->
 	<script type="text/javascript" src="js/savegame-editor.js"></script>
 	<script type="text/javascript" src="js/zelda-botw.js"></script>
@@ -72,7 +73,7 @@
 	<!-- 导航栏 -->
 	<div id="toolbar" class="hidden padding-vertical">
 		<div class="row wrapper">
-			<div class="twelve columns text-center">
+			<div class="nav row full-width columns text-center">
 				<!-- 存档版本信息 -->
 				<span class="clickable" onclick="SavegameEditor.changeEndianess()" id="span-version"></span>
 				|
@@ -107,44 +108,47 @@
 		<h3 class="border-red">状态</h3>
 		<!-- 卢比 -->
 		<div class="row row-items">
-			<div class="ten columns"><label for="number-rupees">卢比</label></div>
-			<div class="two columns"><input id="number-rupees" class="full-width" type="text" /></div>
+			<div class="seven columns"><label for="number-rupees">卢比</label></div>
+			<div class="two columns"><input id="number-rupees" class="full-width w200" type="text" /></div>
 		</div>
 		<!-- 怪币 -->
 		<div class="row row-items">
-			<div class="ten columns"><label for="number-mons">怪币｜怪物商店使用</label></div>
-			<div class="two columns"><input id="number-mons" class="full-width" type="text" /></div>
+			<div class="seven columns"><label for="number-mons">怪币｜怪物商店使用</label></div>
+			<div class="two columns"><input id="number-mons" class="full-width w200" type="text" /></div>
 		</div>
 		<!-- 英杰之力 -->
 		<!-- 乌尔波扎 -->
 		<div class="row row-items">
-			<div class="ten columns"><label for="number-relic-gerudo">英杰达乌尔波扎的愤怒剩余使用次数</label></div>
+			<div class="seven columns"><label for="number-relic-gerudo">英杰达乌尔波扎的愤怒剩余使用次数</label></div>
 			<div class="two columns text-right"><input id="number-relic-gerudo" class="small" type="text" /></div>
 		</div>
 		<!-- 达克尔克 -->
 		<div class="row row-items">
-			<div class="ten columns"><label for="number-relic-goron">英杰达克尔克的守护剩余使用次数</label></div>
+			<div class="seven columns"><label for="number-relic-goron">英杰达克尔克的守护剩余使用次数</label></div>
 			<div class="two columns text-right"><input id="number-relic-goron" class="small" type="text" /></div>
 		</div>
 		<!-- 力巴尔 -->
 		<div class="row row-items">
-			<div class="ten columns"><label for="number-relic-rito">英杰力巴尔的勇猛剩余使用次数</label></div>
+			<div class="seven columns"><label for="number-relic-rito">英杰力巴尔的勇猛剩余使用次数</label></div>
 			<div class="two columns text-right"><input id="number-relic-rito" class="small" type="text" /></div>
 		</div>
 		<!-- 摩托车 -->
 		<div class="row row-items" id="row-motorcycle">
-			<div class="ten columns"><label for="checkbox-motorcycle">摩托车</label></div>
-			<div class="two columns text-right"><input id="checkbox-motorcycle" type="checkbox" value="1" /></div>
+			<div class="seven columns"><label for="checkbox-motorcycle">摩托车</label></div>
+			<div class="two columns text-right">
+				<input id="checkbox-motorcycle" type="checkbox" value="1" />
+				<label for='checkbox-motorcycle'>   </label>
+			</div>
 		</div>
 		<!-- 游戏时间 -->
 		<div class="row row-items">
-			<div class="ten columns"><label for="number-playtime">游戏时间</label></div>
+			<div class="seven columns"><label for="number-playtime">游戏时间</label></div>
 			<div class="two columns"><input type="text" id="number-playtime" class="text-right full-width" disabled /></div>
 		</div>
 		<!-- 最大心心 -->
 		<div class="row row-items">
-			<div class="ten columns"><label for="select-max-hearts">最大心心</label></div>
-			<div class="two columns">
+			<div class="seven columns"><label for="select-max-hearts">最大心心</label></div>
+			<div class="two columns w200">
 				<select id="select-max-hearts" class="full-width">
 					<option value="4">1 颗心心</option>
 					<option value="8">2 颗心心</option>
@@ -181,8 +185,8 @@
 		</div>
 		<!-- 最大耐力 -->
 		<div class="row row-items">
-			<div class="ten columns"><label for="select-max-stamina">最大耐力</label></div>
-			<div class="two columns">
+			<div class="seven columns"><label for="select-max-stamina">最大耐力</label></div>
+			<div class="two columns w200">
 				<select id="select-max-stamina" class="full-width">
 					<option value="1148846080">1 圈</option>
 					<option value="1150681088">1 圈+1/5</option>
@@ -201,23 +205,27 @@
 		<!-- 坐标 (需要内存编辑器) -->
 		<h3 class="border-green">坐标</h3>
 		<div class="row row-items">
-			<div class="six columns"><label for="float-pos-x">当前 林克 坐标 (XYZ)</label></div>
-			<div class="two columns"><input id="float-pos-x" onchange="guessMainFieldGrid()" class="full-width" type="text" /></div>
-			<div class="two columns"><input id="float-pos-y" onchange="guessMainFieldGrid()" class="full-width" type="text" /></div>
-			<div class="two columns"><input id="float-pos-z" onchange="guessMainFieldGrid()" class="full-width" type="text" /></div>
+			<div class="seven columns"><label for="float-pos-x">当前 林克 坐标 (XYZ)</label></div>
+			<div class="row five columns">
+			<div class="two columns w200"><input id="float-pos-x" onchange="guessMainFieldGrid()" class="full-width" type="text" /></div>
+			<div class="two columns w200"><input id="float-pos-y" onchange="guessMainFieldGrid()" class="full-width" type="text" /></div>
+			<div class="two columns w200"><input id="float-pos-z" onchange="guessMainFieldGrid()" class="full-width" type="text" /></div>
+			</div>
 		</div>
 		<!-- 地图 -->
 		<div class="row row-items">
-			<div class="six columns"><label for="select-pos-maptype">地图</label></div>
-			<div class="three columns"><select id="select-pos-maptype"></select></div>
-			<div class="three columns"><select id="select-pos-map"></select></div>
+			<div class="seven columns"><label for="select-pos-maptype">地图</label></div>
+			<div class="row five columns">
+			<div class="three columns"><select class="w200" id="select-pos-maptype"></select></div>
+			<div class="three columns"><select class="w200" id="select-pos-map"></select></div>
+			</div>
 		</div>
 		<!-- 完成度 -->
 		<h3 class="border-blue">完成度</h3>
 		<!-- 克洛洛的果实 -->
 		<div class="row row-items">
 			<div class="seven columns"><label for="number-koroks">克洛洛的果实</label></div>
-			<div class="five columns text-right">
+			<div class="five row columns text-right">
 				<input type="text" id="number-koroks" style="width:100px" disabled />
 				<button onclick="unlockKoroks()">得到所有</button>
 				<button onclick="addKoroksToMap()">将图钉添加到地图</button>
@@ -226,7 +234,7 @@
 		<!-- 西诺克斯 -->
 		<div class="row row-items">
 			<div class="seven columns"><label for="number-defeated-hinox">打败西诺克斯</label></div>
-			<div class="five columns text-right">
+			<div class="five row columns text-right">
 				<input type="text" id="number-defeated-hinox" style="width:100px" disabled />
 				<button onclick="defeatAllHinox()">打败所有</button>
 				<button onclick="addHinoxToMap()">将图钉添加到地图</button>
@@ -235,7 +243,7 @@
 		<!-- 岩石巨人 -->
 		<div class="row row-items">
 			<div class="seven columns"><label for="number-defeated-talus">打败岩石巨人</label></div>
-			<div class="five columns text-right">
+			<div class="five row columns text-right">
 				<input type="text" id="number-defeated-talus" style="width:100px" disabled />
 				<button onclick="defeatAllTalus()">打败所有</button>
 				<button onclick="addTalusToMap()">将图钉添加到地图</button>
@@ -244,7 +252,7 @@
 		<!-- 莫尔德拉吉克 -->
 		<div class="row row-items">
 			<div class="seven columns"><label for="number-defeated-molduga">打败莫尔德拉吉克</label></div>
-			<div class="five columns text-right">
+			<div class="five row columns text-right">
 				<input type="text" id="number-defeated-molduga" style="width:100px" disabled />
 				<button onclick="defeatAllMolduga()">打败所有</button>
 				<button onclick="addMoldugaToMap()">将图钉添加到地图</button>
@@ -252,23 +260,23 @@
 		</div>
 		<!-- 海拉鲁图鉴 -->
 		<div class="row row-items">
-			<div class="nine columns"><label for="number-defeated-molduga">海拉鲁图鉴</label></div>
-			<div class="three columns text-right">
+			<div class="seven columns"><label for="number-defeated-molduga">海拉鲁图鉴</label></div>
+			<div class="three row columns text-right">
 				<button onclick="setCompendiumToStock()">设为库存</button>
 			</div>
 		</div>
 		<!-- 访问过的地方 -->
 		<div class="row row-items">
 			<div class="seven columns">访问过的地方｜貌似是作者自己的标记</div>
-			<div class="five columns text-right">
+			<div class="five row columns text-right">
 				<button onclick="visitAllLocations()">访问所有</button>
 				<button onclick="addLocationsToMap()">将图钉添加到地图</button>
 			</div>
 		</div>
 		<!-- 清除图钉 -->
 		<div class="row row-items">
-			<div class="nine columns">地图图钉</div>
-			<div class="three columns text-right">
+			<div class="seven columns">地图图钉</div>
+			<div class="five row columns text-right">
 				<input type="text" id="number-map-pins" style="width:100px" disabled />
 				<button onclick="clearMapPins()">清除</button>
 			</div>
@@ -297,14 +305,14 @@
 	<!-- 选项卡：料理 -->
 	<div id="tab-food">
 		<h3>料理</h3><div id="container-food"></div>
-		<span class="tips">tips: 修改&添加的料理无法恢复 "心心" 和 "耐力"，属性是随机的，也无法显示食谱。所以不建议修改此项目。</span>
+		<span class="tips row">tips: 修改&添加的料理无法恢复 "心心" 和 "耐力"，属性是随机的，也无法显示食谱。所以不建议修改此项目。</span>
 	</div>
 	<!-- 选项卡：重要物品 -->
 	<div id="tab-other">
 		<h3>重要物品</h3><div id="container-other"></div>
 	</div>
 	<!-- 添加物品按钮 -->
-	<div id="add-item-button" class="text-center">
+	<div id="add-item-button" class="text-center" style="margin-top: 15px;">
 		<button class="with-icon icon1" onclick="SavegameEditor.addItem()">添加物品</button>
 	</div>
 	<!-- 选项卡：马匹 -->

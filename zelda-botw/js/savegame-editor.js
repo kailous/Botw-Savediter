@@ -68,14 +68,14 @@ MarcDialogs = function () {
 			s && (s.className = s.className.replace(/ active/g, "")), o && (s ? history.replaceState({myDialog: e}, null, null) : (console.log("a"), history.pushState({myDialog: e}, null, null))), c.className = "dialog-overlay active", s = "string" == typeof e ? document.getElementById("dialog-" + e) : e, s.className += " active", s.style.position = "fixed", s.style.top = "50%", s.style.left = "50%", s.style.zIndex = 8001, s.dialogElements || (s.dialogElements = s.querySelectorAll("input,textarea,select")), n(), l(s), l(s)
 		}, close: t, alert: function (t) {
 			if (!d) {
-				d = document.createElement("div"), d.id = "dialog-quick-alert", d.className = "dialog",d.logo = document.createElement("img"),d.logo.src ="./assets/wow.svg",d.appendChild(d.logo),d.hr = document.createElement("hr"),d.hr.className = "msghr",d.appendChild(d.hr),d.msg = document.createElement("div"), d.msg.className = "msgtext",d.msg.style.textAlign = "center", d.appendChild(d.msg), d.buttons = document.createElement("div"), d.buttons.className = "buttons";
+				d = document.createElement("div"), d.id = "dialog-quick-alert", d.className = "dialog row",d.logo = document.createElement("img"),d.logo.src ="./assets/wow.svg",d.appendChild(d.logo),d.hr = document.createElement("hr"),d.hr.className = "msghr",d.appendChild(d.hr),d.msg = document.createElement("div"), d.msg.className = "msgtext",d.msg.style.textAlign = "center", d.appendChild(d.msg), d.buttons = document.createElement("div"), d.buttons.className = "buttons";
 				var n = document.createElement("button");
 				n.innerHTML = i[1], e(n, "click", this.close), d.buttons.appendChild(n), d.appendChild(d.buttons), document.body.appendChild(d)
 			}
 			d.msg.innerHTML = t, MarcDialogs.open("quick-alert")
 		}, confirm: function (t, n) {
 			if (!u) {
-				u = document.createElement("div"), u.id = "dialog-quick-confirm", u.className = "dialog", u.logo = document.createElement("img"),u.logo.src ="./assets/wow.svg",u.appendChild(d.logo),u.hr = document.createElement("hr"),u.hr.className = "msghr",d.appendChild(d.hr),u.msg = document.createElement("div"), u.msg.className = "msgtext",u.msg.style.textAlign = "center", u.appendChild(u.msg), u.buttons = document.createElement("div"), u.buttons.className = "buttons";
+				u = document.createElement("div"), u.id = "dialog-quick-confirm", u.className = "dialog row", u.logo = document.createElement("img"),u.logo.src ="./assets/wow.svg",u.appendChild(d.logo),u.hr = document.createElement("hr"),u.hr.className = "msghr",d.appendChild(d.hr),u.msg = document.createElement("div"), u.msg.className = "msgtext",u.msg.style.textAlign = "center", u.appendChild(u.msg), u.buttons = document.createElement("div"), u.buttons.className = "buttons";
 				var l = document.createElement("button");
 				l.className = "button colored blue with-icon icon9", l.innerHTML = i[1], e(l, "click", function () {
 					m()
@@ -232,7 +232,7 @@ window.addEventListener('load', function(){
 	dragZone.className='wrapper';
 	var dragMessage=document.createElement('div');
 	dragMessage.id='dragzone-message';
-	dragMessage.innerHTML='<button class="close" onclick="document.getElementById(\'file-load\').click()"><i class=\"icon disk\"></i> 载入 '+getSavegameAllNames()+'</button> 拖放到这里';
+	dragMessage.innerHTML='<button class="close" onclick="document.getElementById(\'file-load\').click()"><i class=\"icon disk\"></i> 载入 '+getSavegameAllNames()+'</button> 或拖放到这里';
 
 	var inputFile=document.createElement('input');
 	inputFile.type='file';
@@ -299,7 +299,7 @@ window.addEventListener('load', function(){
 
 
 	var warningDialog = document.createElement('div');
-	warningDialog.className = 'dialog';
+	warningDialog.className = 'dialog row';
 	warningDialog.id = 'dialog-warning';
 	warningDialog.innerHTML = '<img src="./assets/wow.svg"><hr class="msghr"><div class="msgtext" style="text-align: center;">使用此工具需要您自行承担风险。<br />请做好备份，避免任何数据丢失。</div>';
 	var divButtons = document.createElement('div');
@@ -349,7 +349,7 @@ function row(sizes){
 }
 function col(size,inner){
 	var c=document.createElement('div');
-	c.className='columns c'+size;
+	c.className='columns row c'+size;
 	c.appendChild(inner);
 	return c
 }
@@ -454,7 +454,7 @@ function select(id,options,func){
 
 function dialog(id){
 	var dialog=document.createElement('div');
-	dialog.className='dialog';
+	dialog.className='dialog row';
 	dialog.id='dialog-'+id;
 	for(var i=1; i<arguments.length; i++)
 		dialog.appendChild(arguments[i]);
