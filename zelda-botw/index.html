@@ -1,405 +1,454 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<!-- 页面标题 -->
-	<title>存档编辑器 &ndash; 《塞尔达传说：旷野之息》</title>
-	<!-- meta标签 -->
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta http-equiv="content-Type" content="text/html; charset=UTF-8"/>
-	<meta name="name" content="存档编辑器 - 《塞尔达传说：旷野之息》">
-	<meta name="description" content="中文版的《塞尔达传说：旷野之息》存档编辑器。 它可以编辑：物品、武器耐久度、修饰符等等！"/>
-	<meta name="keywords" content="html5, savegame, 存档, 修改, 作弊, 塞尔达, 旷野之息, 武器, 弓箭, 盾牌, 卢比, 心心, 生命, 体力, 耐力, save, editor, hack, exploit, wii u, zelda, breath of the wild, botw, weapon, durability, modifier, horse, epona, korok, unlocker, dlc, amiibo"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-	<meta name="image" content="https://kailous.github.io/Botw-Savediter/cover.png">
-	<meta property="og:url" content="https://kailous.github.io/Botw-Savediter">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="旷野之息 存档编辑器">
-	<meta property="og:site_name" content="旷野之息 存档编辑器">
-	<meta property="og:description" content="中文版的《塞尔达传说：旷野之息》存档编辑器。 它可以编辑：物品、武器耐久度、修饰符等等！">
-	<meta property="og:image" content="https://kailous.github.io/Botw-Savediter/cover.png">
-	<meta property="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="旷野之息 存档编辑器">
-	<meta name="twitter:description" content="中文版的《塞尔达传说：旷野之息》存档编辑器。 它可以编辑：物品、武器耐久度、修饰符等等！">
-	<meta name="twitter:image" content="https://kailous.github.io/Botw-Savediter/cover.png">
-	<meta name="color-scheme" content="normal">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="apple-mobile-web-app-title" content="旷野之息 存档编辑器">
-	<meta name="msapplication-TileImage" content="favicon.png">
-	<meta name="msapplication-TileColor" content="#312626">
-	<!-- 图标 -->
-	<link rel="shortcut icon" href="favicon.png"/>
-	<link rel="apple-touch-icon" href="favicon.png">
-	<!-- 样式库 -->
-	<link type="text/css" rel="stylesheet" href="css/zelda-botw.css" media="all"/>
-	<link type="text/css" rel="stylesheet" href="css/var.css" media="all"/>
-	<!-- js库 -->
-	<script type="text/javascript" src="js/savegame-editor.js"></script>
-	<script type="text/javascript" src="js/zelda-botw.js"></script>
-	<script type="text/javascript" src="js/zelda-botw.clipboard.js"></script>
-	<script type="text/javascript" src="js/zelda-botw.data.js"></script>
-	<script type="text/javascript" src="js/zelda-botw.locations.js"></script>
-	<script type="text/javascript" src="js/zelda-botw.icons.js"></script>
-	<script type="text/javascript" src="js/zelda-botw.master.js"></script>
-	<script type="text/javascript">
-		<!--
-		/* service worker */
-		var FORCE_HTTPS=true;
-		window.addEventListener('load',function(){
-			if(location.protocol==='http:' && FORCE_HTTPS)
-				location.replace(window.location.href.replace('http:','https:'));
-			else if(location.protocol==='https:' && 'serviceWorker' in navigator)
-				navigator.serviceWorker.register('/savegame-editors/zelda-botw/_cache_service_worker.js', {scope: '/savegame-editors/zelda-botw/'});
-		}, false);
-		-->
-	</script>
+    <!-- 页面标题 -->
+    <title>存档编辑器 &ndash; 《塞尔达传说：旷野之息》</title>
+    <!-- meta标签 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="name" content="存档编辑器 - 《塞尔达传说：旷野之息》">
+    <meta name="description" content="中文版的《塞尔达传说：旷野之息》存档编辑器。 它可以编辑：物品、武器耐久度、修饰符等等！"/>
+    <meta name="keywords"
+          content="html5, savegame, 存档, 修改, 作弊, 塞尔达, 旷野之息, 武器, 弓箭, 盾牌, 卢比, 心心, 生命, 体力, 耐力, save, editor, hack, exploit, wii u, zelda, breath of the wild, botw, weapon, durability, modifier, horse, epona, korok, unlocker, dlc, amiibo"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="image" content="https://kailous.github.io/Botw-Savediter/cover.png">
+    <meta property="og:url" content="https://kailous.github.io/Botw-Savediter">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="旷野之息 存档编辑器">
+    <meta property="og:site_name" content="旷野之息 存档编辑器">
+    <meta property="og:description" content="中文版的《塞尔达传说：旷野之息》存档编辑器。 它可以编辑：物品、武器耐久度、修饰符等等！">
+    <meta property="og:image" content="https://kailous.github.io/Botw-Savediter/cover.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="旷野之息 存档编辑器">
+    <meta name="twitter:description" content="中文版的《塞尔达传说：旷野之息》存档编辑器。 它可以编辑：物品、武器耐久度、修饰符等等！">
+    <meta name="twitter:image" content="https://kailous.github.io/Botw-Savediter/cover.png">
+    <meta name="color-scheme" content="normal">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="旷野之息 存档编辑器">
+    <meta name="msapplication-TileImage" content="favicon.png">
+    <meta name="msapplication-TileColor" content="#312626">
+    <!-- 图标 -->
+    <link rel="shortcut icon" href="favicon.png"/>
+    <link rel="apple-touch-icon" href="favicon.png">
+    <!-- 样式库 -->
+    <link type="text/css" rel="stylesheet" href="css/zelda-botw.css" media="all"/>
+    <link type="text/css" rel="stylesheet" href="css/var.css" media="all"/>
+    <!-- js库 -->
+    <script type="text/javascript" src="js/savegame-editor.js"></script>
+    <script type="text/javascript" src="js/zelda-botw.js"></script>
+    <script type="text/javascript" src="js/zelda-botw.clipboard.js"></script>
+    <script type="text/javascript" src="js/zelda-botw.data.js"></script>
+    <script type="text/javascript" src="js/zelda-botw.locations.js"></script>
+    <script type="text/javascript" src="js/zelda-botw.icons.js"></script>
+    <script type="text/javascript" src="js/zelda-botw.master.js"></script>
+    <script type="text/javascript">
+        <!--
+        /* service worker */
+        var FORCE_HTTPS = true;
+        window.addEventListener('load', function () {
+            if (location.protocol === 'http:' && FORCE_HTTPS)
+                location.replace(window.location.href.replace('http:', 'https:'));
+            else if (location.protocol === 'https:' && 'serviceWorker' in navigator)
+                navigator.serviceWorker.register('/savegame-editors/zelda-botw/_cache_service_worker.js', {scope: '/savegame-editors/zelda-botw/'});
+        }, false);
+        -->
+    </script>
 </head>
 <body>
 
 <!-- 顶部栏 -->
 <div id="header">
-	<!-- 标题 -->
-	<div id="header-top">
-		<div class="row wrapper padding-vertical">
-			<h1>《塞尔达传说：荒野之息》存档编辑器</h1>
-			<div class="six columns text-left"><img alt="logo" src="./assets/logo.svg" style="max-width:100%"/></div>
-			<div class="six columns text-right header-buttons">
-				汉化作者 <a href="https://rainforest-kailous.notion.site/" class="author">RainForest</a>
-				<a href="https://github.com/kailous/Botw-Savediter" target="_blank" class="button"><span class="sprite github"></span> 查看 GitHub</a>
-				<a href="https://www.paypal.me/marcrobledo/5" target="_blank" rel="nofollow" class="donate button"><span class="sprite heart"></span>请我喝可乐</a>
-			</div>
-		</div>
-	</div>
-	<!-- 导航栏 -->
-	<div id="toolbar" class="hidden padding-vertical">
-		<div class="row wrapper">
-			<div class="nav row full-width columns text-center">
-				<!-- 存档版本信息 -->
-				<span class="clickable" onclick="SavegameEditor.changeEndianess()" id="span-version"></span>
-				|
-				<!-- 导航按钮 -->
-				<button id="tab-button-home" title="主页" class="tab-button active" onclick="showTab('home')"><i class="tab-icon home"></i></button>
-				<button id="tab-button-weapons" title="武器" class="tab-button" onclick="showTab('weapons')"><i class="tab-icon weapons"></i></button>
-				<button id="tab-button-bows" title="弓箭" class="tab-button" onclick="showTab('bows')"><i class="tab-icon bows"></i></button>
-				<button id="tab-button-shields" title="盾" class="tab-button" onclick="showTab('shields')"><i class="tab-icon shields"></i></button>
-				<button id="tab-button-clothes" title="防具" class="tab-button" onclick="showTab('clothes')"><i class="tab-icon clothes"></i></button>
-				<button id="tab-button-materials" title="材料" class="tab-button" onclick="showTab('materials')"><i class="tab-icon materials"></i></button>
-				<button id="tab-button-food" title="料理" class="tab-button" onclick="showTab('food')"><i class="tab-icon food"></i></button>
-				<button id="tab-button-other" title="重要物品" class="tab-button" onclick="showTab('other')"><i class="tab-icon other"></i></button>
-				<button id="tab-button-horses" title="马匹" class="tab-button" onclick="showTab('horses')"><i class="tab-icon horses"></i></button>
-				<button id="tab-button-master" title="高级编辑" class="tab-button" onclick="showTab('master')"><i class="tab-icon master"></i></button>
-				|
-				<!-- 关闭与保存 -->
-				<button class="button with-icon icon3" onclick="closeFile()">关闭文件</button>
-				<button class="button colored blue with-icon icon9" onclick="saveChanges()">保存文件</button>
-			</div>
-		</div>
-	</div>
+    <!-- 标题 -->
+    <div id="header-top">
+        <div class="row wrapper padding-vertical">
+            <h1>《塞尔达传说：荒野之息》存档编辑器</h1>
+            <div class="six columns text-left"><img alt="logo" src="./assets/logo.svg" style="max-width:100%"/></div>
+            <div class="six columns text-right header-buttons">
+                汉化作者 <a href="https://rainforest-kailous.notion.site/" class="author">RainForest</a>
+                <a href="https://github.com/kailous/Botw-Savediter" target="_blank" class="button"><span
+                        class="sprite github"></span> 查看 GitHub</a>
+                <a href="javascript:" onclick="document.getElementById('treatCoke_bg').style.display='block';document.getElementById('treatCoke').style.display='block';" target="_blank" rel="nofollow" class="donate button"><span
+                        class="sprite heart"></span>请我喝可乐</a>
+            </div>
+        </div>
+    </div>
+    <!-- 导航栏 -->
+    <div id="toolbar" class="hidden padding-vertical">
+        <div class="row wrapper">
+            <div class="nav row full-width columns text-center">
+                <!-- 存档版本信息 -->
+                <span class="clickable" onclick="SavegameEditor.changeEndianess()" id="span-version"></span>
+                |
+                <!-- 导航按钮 -->
+                <button id="tab-button-home" title="主页" class="tab-button active" onclick="showTab('home')"><i
+                        class="tab-icon home"></i></button>
+                <button id="tab-button-weapons" title="武器" class="tab-button" onclick="showTab('weapons')"><i
+                        class="tab-icon weapons"></i></button>
+                <button id="tab-button-bows" title="弓箭" class="tab-button" onclick="showTab('bows')"><i
+                        class="tab-icon bows"></i></button>
+                <button id="tab-button-shields" title="盾" class="tab-button" onclick="showTab('shields')"><i
+                        class="tab-icon shields"></i></button>
+                <button id="tab-button-clothes" title="防具" class="tab-button" onclick="showTab('clothes')"><i
+                        class="tab-icon clothes"></i></button>
+                <button id="tab-button-materials" title="材料" class="tab-button" onclick="showTab('materials')"><i
+                        class="tab-icon materials"></i></button>
+                <button id="tab-button-food" title="料理" class="tab-button" onclick="showTab('food')"><i
+                        class="tab-icon food"></i></button>
+                <button id="tab-button-other" title="重要物品" class="tab-button" onclick="showTab('other')"><i
+                        class="tab-icon other"></i></button>
+                <button id="tab-button-horses" title="马匹" class="tab-button" onclick="showTab('horses')"><i
+                        class="tab-icon horses"></i></button>
+                <button id="tab-button-master" title="高级编辑" class="tab-button" onclick="showTab('master')"><i
+                        class="tab-icon master"></i></button>
+                |
+                <!-- 关闭与保存 -->
+                <button class="button with-icon icon3" onclick="closeFile()">关闭文件</button>
+                <button class="button colored blue with-icon icon9" onclick="saveChanges()">保存文件</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- 编辑器 -->
 <div id="the-editor" class="wrapper hidden">
-	<!-- 调试 -->
-	<div id="debug"></div>
-	
-	<!-- 选项卡：主页 -->
-	<div id="tab-home">
-		<!-- 状态 -->
-		<h3 class="border-red">状态</h3>
-		<!-- 卢比 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="number-rupees">卢比</label></div>
-			<div class="two columns"><input id="number-rupees" class="full-width w200" type="text" /></div>
-		</div>
-		<!-- 怪币 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="number-mons">怪币｜怪物商店使用</label></div>
-			<div class="two columns"><input id="number-mons" class="full-width w200" type="text" /></div>
-		</div>
-		<!-- 英杰之力 -->
-		<!-- 乌尔波扎 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="number-relic-gerudo">英杰达乌尔波扎的愤怒剩余使用次数</label></div>
-			<div class="two columns text-right"><input id="number-relic-gerudo" class="small" type="text" /></div>
-		</div>
-		<!-- 达克尔克 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="number-relic-goron">英杰达克尔克的守护剩余使用次数</label></div>
-			<div class="two columns text-right"><input id="number-relic-goron" class="small" type="text" /></div>
-		</div>
-		<!-- 力巴尔 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="number-relic-rito">英杰力巴尔的勇猛剩余使用次数</label></div>
-			<div class="two columns text-right"><input id="number-relic-rito" class="small" type="text" /></div>
-		</div>
-		<!-- 摩托车 -->
-		<div class="row row-items" id="row-motorcycle">
-			<div class="seven columns"><label for="checkbox-motorcycle">摩托车</label></div>
-			<div class="two columns text-right">
-				<input id="checkbox-motorcycle" type="checkbox" value="1" />
-				<label for='checkbox-motorcycle'>   </label>
-			</div>
-		</div>
-		<!-- 游戏时间 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="number-playtime">游戏时间</label></div>
-			<div class="two columns"><input type="text" id="number-playtime" class="text-right full-width" disabled /></div>
-		</div>
-		<!-- 最大心心 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="select-max-hearts">最大心心</label></div>
-			<div class="two columns w200">
-				<select id="select-max-hearts" class="full-width">
-					<option value="4">1 颗心心</option>
-					<option value="8">2 颗心心</option>
-					<option value="12">3 颗心心</option>
-					<option value="16">4 颗心心</option>
-					<option value="20">5 颗心心</option>
-					<option value="24">6 颗心心</option>
-					<option value="28">7 颗心心</option>
-					<option value="32">8 颗心心</option>
-					<option value="36">9 颗心心</option>
-					<option value="40">10 颗心心</option>
-					<option value="44">11 颗心心</option>
-					<option value="48">12 颗心心</option>
-					<option value="52">13 颗心心</option>
-					<option value="56">14 颗心心</option>
-					<option value="60">15 颗心心</option>
-					<option value="64">16 颗心心</option>
-					<option value="68">17 颗心心</option>
-					<option value="72">18 颗心心</option>
-					<option value="76">19 颗心心</option>
-					<option value="80">20 颗心心</option>
-					<option value="84">21 颗心心</option>
-					<option value="88">22 颗心心</option>
-					<option value="92">23 颗心心</option>
-					<option value="96">24 颗心心</option>
-					<option value="100">25 颗心心</option>
-					<option value="104">26 颗心心</option>
-					<option value="108">27 颗心心</option>
-					<option value="112">28 颗心心</option>
-					<option value="116">29 颗心心</option>
-					<option value="120">30 颗心心</option>
-				</select>
-			</div>
-		</div>
-		<!-- 最大耐力 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="select-max-stamina">最大耐力</label></div>
-			<div class="two columns w200">
-				<select id="select-max-stamina" class="full-width">
-					<option value="1148846080">1 圈</option>
-					<option value="1150681088">1 圈+1/5</option>
-					<option value="1152319488">1 圈+2/5</option>
-					<option value="1153957888">1 圈+3/5</option>
-					<option value="1155596288">1 圈+4/5</option>
-					<option value="1157234688">2 圈</option>
-					<option value="1158250496">2 圈+1/5</option>
-					<option value="1159069696">2 圈+2/5</option>
-					<option value="1159888896">2 圈+3/5</option>
-					<option value="1160708096">2 圈+4/5</option>
-					<option value="1161527296">3 圈</option>
-				</select>
-			</div>
-		</div>
-		<!-- 坐标 (需要内存编辑器) -->
-		<h3 class="border-green">坐标</h3>
-		<div class="row row-items">
-			<div class="seven columns"><label for="float-pos-x">当前 林克 坐标 (XYZ)</label></div>
-			<div class="row five columns">
-			<div class="two columns w200"><input id="float-pos-x" onchange="guessMainFieldGrid()" class="full-width" type="text" /></div>
-			<div class="two columns w200"><input id="float-pos-y" onchange="guessMainFieldGrid()" class="full-width" type="text" /></div>
-			<div class="two columns w200"><input id="float-pos-z" onchange="guessMainFieldGrid()" class="full-width" type="text" /></div>
-			</div>
-		</div>
-		<!-- 地图 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="select-pos-maptype">地图</label></div>
-			<div class="row five columns">
-			<div class="three columns"><select class="w200" id="select-pos-maptype"></select></div>
-			<div class="three columns"><select class="w200" id="select-pos-map"></select></div>
-			</div>
-		</div>
-		<!-- 完成度 -->
-		<h3 class="border-blue">完成度</h3>
-		<!-- 克洛洛的果实 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="number-koroks">克洛洛的果实</label></div>
-			<div class="five row columns text-right">
-				<input type="text" id="number-koroks" style="width:100px" disabled />
-				<button onclick="unlockKoroks()">得到所有</button>
-				<button onclick="addKoroksToMap()">将图钉添加到地图</button>
-			</div>
-		</div>
-		<!-- 西诺克斯 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="number-defeated-hinox">打败西诺克斯</label></div>
-			<div class="five row columns text-right">
-				<input type="text" id="number-defeated-hinox" style="width:100px" disabled />
-				<button onclick="defeatAllHinox()">打败所有</button>
-				<button onclick="addHinoxToMap()">将图钉添加到地图</button>
-			</div>
-		</div>
-		<!-- 岩石巨人 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="number-defeated-talus">打败岩石巨人</label></div>
-			<div class="five row columns text-right">
-				<input type="text" id="number-defeated-talus" style="width:100px" disabled />
-				<button onclick="defeatAllTalus()">打败所有</button>
-				<button onclick="addTalusToMap()">将图钉添加到地图</button>
-			</div>
-		</div>
-		<!-- 莫尔德拉吉克 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="number-defeated-molduga">打败莫尔德拉吉克</label></div>
-			<div class="five row columns text-right">
-				<input type="text" id="number-defeated-molduga" style="width:100px" disabled />
-				<button onclick="defeatAllMolduga()">打败所有</button>
-				<button onclick="addMoldugaToMap()">将图钉添加到地图</button>
-			</div>
-		</div>
-		<!-- 海拉鲁图鉴 -->
-		<div class="row row-items">
-			<div class="seven columns"><label for="number-defeated-molduga">海拉鲁图鉴</label></div>
-			<div class="three row columns text-right">
-				<button onclick="setCompendiumToStock()">设为库存</button>
-			</div>
-		</div>
-		<!-- 访问过的地方 -->
-		<div class="row row-items">
-			<div class="seven columns">访问过的地方｜貌似是作者自己的标记</div>
-			<div class="five row columns text-right">
-				<button onclick="visitAllLocations()">访问所有</button>
-				<button onclick="addLocationsToMap()">将图钉添加到地图</button>
-			</div>
-		</div>
-		<!-- 清除图钉 -->
-		<div class="row row-items">
-			<div class="seven columns">地图图钉</div>
-			<div class="five row columns text-right">
-				<input type="text" id="number-map-pins" style="width:100px" disabled />
-				<button onclick="clearMapPins()">清除</button>
-			</div>
-		</div>
-	</div>
-	<!-- 选项卡：武器 -->
-	<div id="tab-weapons">
-		<h3>武器</h3><div id="container-weapons"></div>
-	</div>
-	<!-- 选项卡：弓箭 -->
-	<div id="tab-bows">
-		<h3>弓箭</h3><div id="container-bows"></div>
-	</div>
-	<!-- 选项卡：盾 -->
-	<div id="tab-shields">
-		<h3>盾</h3><div id="container-shields"></div>
-	</div>
-	<!-- 选项卡：防具 -->
-	<div id="tab-clothes">
-		<h3>防具</h3><div id="container-clothes"></div>
-	</div>
-	<!-- 选项卡：材料 -->
-	<div id="tab-materials">
-		<h3>材料</h3><div id="container-materials"></div>
-	</div>
-	<!-- 选项卡：料理 -->
-	<div id="tab-food">
-		<h3>料理</h3><div id="container-food"></div>
-		<span class="tips row">tips: 修改&添加的料理无法恢复 "心心" 和 "耐力"，属性是随机的，也无法显示食谱。所以不建议修改此项目。</span>
-	</div>
-	<!-- 选项卡：重要物品 -->
-	<div id="tab-other">
-		<h3>重要物品</h3><div id="container-other"></div>
-	</div>
-	<!-- 添加物品按钮 -->
-	<div id="add-item-button" class="text-center" style="margin-top: 15px;">
-		<button class="with-icon icon1" onclick="SavegameEditor.addItem()">添加物品</button>
-	</div>
-	<!-- 选项卡：马匹 -->
-	<div id="tab-horses">
-		<h3 class="border-blue">马匹</h3>
-		<span class="tips">tips: 马的名字修改成中文后，无法在游戏内显示。编码不一样，游戏内中文的马名称在这里也是乱码。技术水平有限目前无解。</span>
-		<!-- 马匹 #1 -->
-		<div class="row row-items2"><div class="twelve columns">马匹 #1</div></div>
-		<div class="row row-items" id="row-horse0">
-			<div class="three columns"><select id="select-horse0-type"></select></div>
-			<div class="three columns"><input type="text" id="input-horse0-name" /></div>
-			<div class="three columns"><select id="select-horse0-saddles"></select></div>
-			<div class="three columns"><select id="select-horse0-reins"></select></div>
-		</div>
-		<!-- 马匹 #2 -->
-		<div class="row row-items2"><div class="twelve columns">马匹 #2</div></div>
-		<div class="row row-items" id="row-horse1">
-			<div class="three columns"><select id="select-horse1-type"></select></div>
-			<div class="three columns"><input type="text" id="input-horse1-name" /></div>
-			<div class="three columns"><select id="select-horse1-saddles"></select></div>
-			<div class="three columns"><select id="select-horse1-reins"></select></div>
-		</div>
-		<!-- 马匹 #3 -->
-		<div class="row row-items2"><div class="twelve columns">马匹 #3</div></div>
-		<div class="row row-items" id="row-horse2">
-			<div class="three columns"><select id="select-horse2-type"></select></div>
-			<div class="three columns"><input type="text" id="input-horse2-name" /></div>
-			<div class="three columns"><select id="select-horse2-saddles"></select></div>
-			<div class="three columns"><select id="select-horse2-reins"></select></div>
-		</div>
-		<!-- 马匹 #4 -->
-		<div class="row row-items2"><div class="twelve columns">马匹 #4</div></div>
-		<div class="row row-items" id="row-horse3">
-			<div class="three columns"><select id="select-horse3-type"></select></div>
-			<div class="three columns"><input type="text" id="input-horse3-name" /></div>
-			<div class="three columns"><select id="select-horse3-saddles"></select></div>
-			<div class="three columns"><select id="select-horse3-reins"></select></div>
-		</div>
-		<!-- 马匹 #5 -->
-		<div class="row row-items2"><div class="twelve columns">马匹 #5</div></div>
-		<div class="row row-items" id="row-horse4">
-			<div class="three columns"><select id="select-horse4-type"></select></div>
-			<div class="three columns"><input type="text" id="input-horse4-name" /></div>
-			<div class="three columns"><select id="select-horse4-saddles"></select></div>
-			<div class="three columns"><select id="select-horse4-reins"></select></div>
-		</div>
-		<!-- 野马 -->
-		<div class="row row-items2"><div class="twelve columns">野马</div></div>
-		<div class="row row-items" id="row-horse5">
-			<div class="three columns end"><select id="select-horse5-type"></select></div>
-		</div>
-		<!-- 马匹坐标 -->
-		<div class="row row-items">
-			<div class="six columns"><label for="float-pos-x-horse">当前马坐标 (XYZ)</label></div>
-			<div class="two columns"><input id="float-pos-x-horse" class="full-width" type="text" /></div>
-			<div class="two columns"><input id="float-pos-y-horse" class="full-width" type="text" /></div>
-			<div class="two columns"><input id="float-pos-z-horse" class="full-width" type="text" /></div>
-		</div>
-	</div>
-	<!-- 选项卡：高级编辑 -->
-	<div id="tab-master">
-		<div id="master-editor-loading" class="text-center">高级编辑正在加载...</div>
-		<div id="master-editor-hidden" class="hidden">
-			<label for="select-filters">筛选: </label>
-			<select id="select-filters" onchange="BOTWMasterEditor.refreshResults()">
-				<option value="">- 所有 -</option>
-				<option value="WolfLink_|Amiibo">Amiibo</option>
-				<option value="_DispNameFlag$">显示标志名称</option>
-				<option value="100enemy">DLC1</option>
-				<option value="Motorcycle">DLC2</option>
-				<option value="Horse_">马匹</option>
-				<option value="Defeat_Enemy_|Defeated.+Num">击败敌人</option>
-				<option value="Porch|Cook">物品</option>
-				<option value="IsGet_">获取标志</option>
-				<option value="HiddenKorok|OldKorok_">克洛洛</option>
-				<option value="^Location_">去过的地方</option>
-				<option value="AlbumPicture|PictureBook">概要</option>
-			</select>
-			<input id="input-custom-filter" type="text" placeholder="Search hash keys" onchange="BOTWMasterEditor.refreshResults()" />
-			 |
-			<label for="select-page">页: </label>
-			<button id="page-prev" onclick="BOTWMasterEditor.prevPage()">&laquo;</button>
-			<select id="select-page" class="small" onchange="BOTWMasterEditor.setPage(this.selectedIndex)"></select>
-			<button id="page-next" onclick="BOTWMasterEditor.nextPage()">&raquo;</button>
-			<table id="table"></table>
-		</div>
-	</div>	
+    <!-- 调试 -->
+    <div id="debug"></div>
+
+    <!-- 选项卡：主页 -->
+    <div id="tab-home">
+        <!-- 状态 -->
+        <h3 class="border-red">状态</h3>
+        <!-- 卢比 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="number-rupees">卢比</label></div>
+            <div class="two columns"><input id="number-rupees" class="full-width w200" type="text"/></div>
+        </div>
+        <!-- 怪币 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="number-mons">怪币｜怪物商店使用</label></div>
+            <div class="two columns"><input id="number-mons" class="full-width w200" type="text"/></div>
+        </div>
+        <!-- 英杰之力 -->
+        <!-- 乌尔波扎 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="number-relic-gerudo">英杰达乌尔波扎的愤怒剩余使用次数</label></div>
+            <div class="two columns text-right"><input id="number-relic-gerudo" class="small" type="text"/></div>
+        </div>
+        <!-- 达克尔克 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="number-relic-goron">英杰达克尔克的守护剩余使用次数</label></div>
+            <div class="two columns text-right"><input id="number-relic-goron" class="small" type="text"/></div>
+        </div>
+        <!-- 力巴尔 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="number-relic-rito">英杰力巴尔的勇猛剩余使用次数</label></div>
+            <div class="two columns text-right"><input id="number-relic-rito" class="small" type="text"/></div>
+        </div>
+        <!-- 摩托车 -->
+        <div class="row row-items" id="row-motorcycle">
+            <div class="seven columns"><label for="checkbox-motorcycle">摩托车</label></div>
+            <div class="two columns text-right">
+                <input id="checkbox-motorcycle" type="checkbox" value="1"/>
+                <label for='checkbox-motorcycle'> </label>
+            </div>
+        </div>
+        <!-- 游戏时间 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="number-playtime">游戏时间</label></div>
+            <div class="two columns"><input type="text" id="number-playtime" class="text-right full-width" disabled/>
+            </div>
+        </div>
+        <!-- 最大心心 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="select-max-hearts">最大心心</label></div>
+            <div class="two columns w200">
+                <select id="select-max-hearts" class="full-width">
+                    <option value="4">1 颗心心</option>
+                    <option value="8">2 颗心心</option>
+                    <option value="12">3 颗心心</option>
+                    <option value="16">4 颗心心</option>
+                    <option value="20">5 颗心心</option>
+                    <option value="24">6 颗心心</option>
+                    <option value="28">7 颗心心</option>
+                    <option value="32">8 颗心心</option>
+                    <option value="36">9 颗心心</option>
+                    <option value="40">10 颗心心</option>
+                    <option value="44">11 颗心心</option>
+                    <option value="48">12 颗心心</option>
+                    <option value="52">13 颗心心</option>
+                    <option value="56">14 颗心心</option>
+                    <option value="60">15 颗心心</option>
+                    <option value="64">16 颗心心</option>
+                    <option value="68">17 颗心心</option>
+                    <option value="72">18 颗心心</option>
+                    <option value="76">19 颗心心</option>
+                    <option value="80">20 颗心心</option>
+                    <option value="84">21 颗心心</option>
+                    <option value="88">22 颗心心</option>
+                    <option value="92">23 颗心心</option>
+                    <option value="96">24 颗心心</option>
+                    <option value="100">25 颗心心</option>
+                    <option value="104">26 颗心心</option>
+                    <option value="108">27 颗心心</option>
+                    <option value="112">28 颗心心</option>
+                    <option value="116">29 颗心心</option>
+                    <option value="120">30 颗心心</option>
+                </select>
+            </div>
+        </div>
+        <!-- 最大耐力 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="select-max-stamina">最大耐力</label></div>
+            <div class="two columns w200">
+                <select id="select-max-stamina" class="full-width">
+                    <option value="1148846080">1 圈</option>
+                    <option value="1150681088">1 圈+1/5</option>
+                    <option value="1152319488">1 圈+2/5</option>
+                    <option value="1153957888">1 圈+3/5</option>
+                    <option value="1155596288">1 圈+4/5</option>
+                    <option value="1157234688">2 圈</option>
+                    <option value="1158250496">2 圈+1/5</option>
+                    <option value="1159069696">2 圈+2/5</option>
+                    <option value="1159888896">2 圈+3/5</option>
+                    <option value="1160708096">2 圈+4/5</option>
+                    <option value="1161527296">3 圈</option>
+                </select>
+            </div>
+        </div>
+        <!-- 坐标 (需要内存编辑器) -->
+        <h3 class="border-green">坐标</h3>
+        <div class="row row-items">
+            <div class="seven columns"><label for="float-pos-x">当前 林克 坐标 (XYZ)</label></div>
+            <div class="row five columns">
+                <div class="two columns w200"><input id="float-pos-x" onchange="guessMainFieldGrid()" class="full-width"
+                                                     type="text"/></div>
+                <div class="two columns w200"><input id="float-pos-y" onchange="guessMainFieldGrid()" class="full-width"
+                                                     type="text"/></div>
+                <div class="two columns w200"><input id="float-pos-z" onchange="guessMainFieldGrid()" class="full-width"
+                                                     type="text"/></div>
+            </div>
+        </div>
+        <!-- 地图 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="select-pos-maptype">地图</label></div>
+            <div class="row five columns">
+                <div class="three columns"><select class="w200" id="select-pos-maptype"></select></div>
+                <div class="three columns"><select class="w200" id="select-pos-map"></select></div>
+            </div>
+        </div>
+        <!-- 完成度 -->
+        <h3 class="border-blue">完成度</h3>
+        <!-- 克洛洛的果实 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="number-koroks">克洛洛的果实</label></div>
+            <div class="five row columns text-right">
+                <input type="text" id="number-koroks" style="width:100px" disabled/>
+                <button onclick="unlockKoroks()">得到所有</button>
+                <button onclick="addKoroksToMap()">将图钉添加到地图</button>
+            </div>
+        </div>
+        <!-- 西诺克斯 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="number-defeated-hinox">打败西诺克斯</label></div>
+            <div class="five row columns text-right">
+                <input type="text" id="number-defeated-hinox" style="width:100px" disabled/>
+                <button onclick="defeatAllHinox()">打败所有</button>
+                <button onclick="addHinoxToMap()">将图钉添加到地图</button>
+            </div>
+        </div>
+        <!-- 岩石巨人 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="number-defeated-talus">打败岩石巨人</label></div>
+            <div class="five row columns text-right">
+                <input type="text" id="number-defeated-talus" style="width:100px" disabled/>
+                <button onclick="defeatAllTalus()">打败所有</button>
+                <button onclick="addTalusToMap()">将图钉添加到地图</button>
+            </div>
+        </div>
+        <!-- 莫尔德拉吉克 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="number-defeated-molduga">打败莫尔德拉吉克</label></div>
+            <div class="five row columns text-right">
+                <input type="text" id="number-defeated-molduga" style="width:100px" disabled/>
+                <button onclick="defeatAllMolduga()">打败所有</button>
+                <button onclick="addMoldugaToMap()">将图钉添加到地图</button>
+            </div>
+        </div>
+        <!-- 海拉鲁图鉴 -->
+        <div class="row row-items">
+            <div class="seven columns"><label for="number-defeated-molduga">海拉鲁图鉴</label></div>
+            <div class="three row columns text-right">
+                <button onclick="setCompendiumToStock()">设为库存</button>
+            </div>
+        </div>
+        <!-- 访问过的地方 -->
+        <div class="row row-items">
+            <div class="seven columns">访问过的地方｜貌似是作者自己的标记</div>
+            <div class="five row columns text-right">
+                <button onclick="visitAllLocations()">访问所有</button>
+                <button onclick="addLocationsToMap()">将图钉添加到地图</button>
+            </div>
+        </div>
+        <!-- 清除图钉 -->
+        <div class="row row-items">
+            <div class="seven columns">地图图钉</div>
+            <div class="five row columns text-right">
+                <input type="text" id="number-map-pins" style="width:100px" disabled/>
+                <button onclick="clearMapPins()">清除</button>
+            </div>
+        </div>
+    </div>
+    <!-- 选项卡：武器 -->
+    <div id="tab-weapons">
+        <h3>武器</h3>
+        <div id="container-weapons"></div>
+    </div>
+    <!-- 选项卡：弓箭 -->
+    <div id="tab-bows">
+        <h3>弓箭</h3>
+        <div id="container-bows"></div>
+    </div>
+    <!-- 选项卡：盾 -->
+    <div id="tab-shields">
+        <h3>盾</h3>
+        <div id="container-shields"></div>
+    </div>
+    <!-- 选项卡：防具 -->
+    <div id="tab-clothes">
+        <h3>防具</h3>
+        <div id="container-clothes"></div>
+    </div>
+    <!-- 选项卡：材料 -->
+    <div id="tab-materials">
+        <h3>材料</h3>
+        <div id="container-materials"></div>
+    </div>
+    <!-- 选项卡：料理 -->
+    <div id="tab-food">
+        <h3>料理</h3>
+        <div id="container-food"></div>
+        <span class="tips row">tips: 修改&添加的料理无法恢复 "心心" 和 "耐力"，属性是随机的，也无法显示食谱。所以不建议修改此项目。</span>
+    </div>
+    <!-- 选项卡：重要物品 -->
+    <div id="tab-other">
+        <h3>重要物品</h3>
+        <div id="container-other"></div>
+    </div>
+    <!-- 添加物品按钮 -->
+    <div id="add-item-button" class="text-center" style="margin-top: 15px;">
+        <button class="with-icon icon1" onclick="SavegameEditor.addItem()">添加物品</button>
+    </div>
+    <!-- 选项卡：马匹 -->
+    <div id="tab-horses">
+        <h3 class="border-blue">马匹</h3>
+        <span class="tips">tips: 马的名字修改成中文后，无法在游戏内显示。编码不一样，游戏内中文的马名称在这里也是乱码。技术水平有限目前无解。</span>
+        <!-- 马匹 #1 -->
+        <div class="row row-items2">
+            <div class="twelve columns">马匹 #1</div>
+        </div>
+        <div class="row row-items" id="row-horse0">
+            <div class="three columns"><select id="select-horse0-type"></select></div>
+            <div class="three columns"><input type="text" id="input-horse0-name"/></div>
+            <div class="three columns"><select id="select-horse0-saddles"></select></div>
+            <div class="three columns"><select id="select-horse0-reins"></select></div>
+        </div>
+        <!-- 马匹 #2 -->
+        <div class="row row-items2">
+            <div class="twelve columns">马匹 #2</div>
+        </div>
+        <div class="row row-items" id="row-horse1">
+            <div class="three columns"><select id="select-horse1-type"></select></div>
+            <div class="three columns"><input type="text" id="input-horse1-name"/></div>
+            <div class="three columns"><select id="select-horse1-saddles"></select></div>
+            <div class="three columns"><select id="select-horse1-reins"></select></div>
+        </div>
+        <!-- 马匹 #3 -->
+        <div class="row row-items2">
+            <div class="twelve columns">马匹 #3</div>
+        </div>
+        <div class="row row-items" id="row-horse2">
+            <div class="three columns"><select id="select-horse2-type"></select></div>
+            <div class="three columns"><input type="text" id="input-horse2-name"/></div>
+            <div class="three columns"><select id="select-horse2-saddles"></select></div>
+            <div class="three columns"><select id="select-horse2-reins"></select></div>
+        </div>
+        <!-- 马匹 #4 -->
+        <div class="row row-items2">
+            <div class="twelve columns">马匹 #4</div>
+        </div>
+        <div class="row row-items" id="row-horse3">
+            <div class="three columns"><select id="select-horse3-type"></select></div>
+            <div class="three columns"><input type="text" id="input-horse3-name"/></div>
+            <div class="three columns"><select id="select-horse3-saddles"></select></div>
+            <div class="three columns"><select id="select-horse3-reins"></select></div>
+        </div>
+        <!-- 马匹 #5 -->
+        <div class="row row-items2">
+            <div class="twelve columns">马匹 #5</div>
+        </div>
+        <div class="row row-items" id="row-horse4">
+            <div class="three columns"><select id="select-horse4-type"></select></div>
+            <div class="three columns"><input type="text" id="input-horse4-name"/></div>
+            <div class="three columns"><select id="select-horse4-saddles"></select></div>
+            <div class="three columns"><select id="select-horse4-reins"></select></div>
+        </div>
+        <!-- 野马 -->
+        <div class="row row-items2">
+            <div class="twelve columns">野马</div>
+        </div>
+        <div class="row row-items" id="row-horse5">
+            <div class="three columns end"><select id="select-horse5-type"></select></div>
+        </div>
+        <!-- 马匹坐标 -->
+        <div class="row row-items">
+            <div class="six columns"><label for="float-pos-x-horse">当前马坐标 (XYZ)</label></div>
+            <div class="two columns"><input id="float-pos-x-horse" class="full-width" type="text"/></div>
+            <div class="two columns"><input id="float-pos-y-horse" class="full-width" type="text"/></div>
+            <div class="two columns"><input id="float-pos-z-horse" class="full-width" type="text"/></div>
+        </div>
+    </div>
+    <!-- 选项卡：高级编辑 -->
+    <div id="tab-master">
+        <div id="master-editor-loading" class="text-center">高级编辑正在加载...</div>
+        <div id="master-editor-hidden" class="hidden">
+            <label for="select-filters">筛选: </label>
+            <select id="select-filters" onchange="BOTWMasterEditor.refreshResults()">
+                <option value="">- 所有 -</option>
+                <option value="WolfLink_|Amiibo">Amiibo</option>
+                <option value="_DispNameFlag$">显示标志名称</option>
+                <option value="100enemy">DLC1</option>
+                <option value="Motorcycle">DLC2</option>
+                <option value="Horse_">马匹</option>
+                <option value="Defeat_Enemy_|Defeated.+Num">击败敌人</option>
+                <option value="Porch|Cook">物品</option>
+                <option value="IsGet_">获取标志</option>
+                <option value="HiddenKorok|OldKorok_">克洛洛</option>
+                <option value="^Location_">去过的地方</option>
+                <option value="AlbumPicture|PictureBook">概要</option>
+            </select>
+            <input id="input-custom-filter" type="text" placeholder="Search hash keys"
+                   onchange="BOTWMasterEditor.refreshResults()"/>
+            |
+            <label for="select-page">页: </label>
+            <button id="page-prev" onclick="BOTWMasterEditor.prevPage()">&laquo;</button>
+            <select id="select-page" class="small" onchange="BOTWMasterEditor.setPage(this.selectedIndex)"></select>
+            <button id="page-next" onclick="BOTWMasterEditor.nextPage()">&raquo;</button>
+            <table id="table"></table>
+        </div>
+    </div>
+</div>
+<div id="treatCoke">
+    <div>
+        <img class="thank-you" alt="thank you" src="./assets/thank-you.svg">
+        <hr>
+        <h4>感谢你的打赏</h4>
+        <img class="qr" alt="WeChat Pay QR" src="./assets/WeChat_QR.png">
+        <p class="WeChat_Tips">请使用<span>微信</span>扫一扫</p>
+    </div>
+</div>
+<div id="treatCoke_bg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 8000;">
+    <a style="display: block;width: 100%;height: 100%;" href="javascript:" onclick="document.getElementById('treatCoke_bg').style.display='none';document.getElementById('treatCoke').style.display='none';"> </a>
 </div>
 </body>
 </html>

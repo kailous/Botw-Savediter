@@ -349,9 +349,10 @@ function row(sizes){
 }
 function col(size,inner){
 	var c=document.createElement('div');
+	c.id='box'+size;
 	c.className='columns row c'+size;
 	c.appendChild(inner);
-	return c
+	return c;
 }
 
 
@@ -420,7 +421,7 @@ function select(id,options,func){
 	}else{
 		select=document.createElement('select');
 		select.id='select-'+id;
-		select.className='w320';/*select.className='full-width w320';*/
+		select.className='w240';/*select.className='full-width w320';*/
 	}
 	if(options){
 		for(var i=0; i<options.length; i++){

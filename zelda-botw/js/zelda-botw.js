@@ -895,6 +895,9 @@ function defeatAllMolduga(){
 	var unlockedKoroks=setBooleans(BOTW_Data.DEFEATED_MOLDUGA,'defeated-molduga');
 	MarcDialogs.alert('打败了 <span class="msgnb">'+unlockedKoroks+'</span> 只 [<span class="msgnm"> 莫尔德拉吉克 </span>]');
 }
+function treatCoke(){
+	MarcDialogs.alert('打败了 <span class="msgnb">'+unlockedKoroks+'</span> 只 [<span class="msgnm"> 莫尔德拉吉克 </span>]');
+}
 function visitAllLocations(){
 	var missingLocations=setBooleans(BOTW_Data.LOCATIONS);
 	MarcDialogs.alert('访问了 <span class="msgnb">'+missingLocations+'</span> 个 [<span class="msgnm"> 未知的地点 </span>]');

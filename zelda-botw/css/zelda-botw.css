@@ -49,7 +49,7 @@ button {
     width: 100% !important;
     height: 100%;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: stretch;
 }
 
@@ -62,14 +62,96 @@ button {
 .w120 {
     width: 120px !important;
 }
+
 .w200 {
     width: 200px !important;
 }
+
+.w240 {
+    width: 240px !important;
+}
+
+.w280 {
+    width: 280px !important;
+}
+
 .w320 {
     width: 320px !important;
 }
 
+#treatCoke, #treatCoke_bg {
+    display: none;
+}
 
+#treatCoke_bg {
+    transition: visibility 0s .2s, opacity .2s;
+    background-color: #300303;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+    background-color: #FFFFFFA5;
+}
+
+#treatCoke {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 8001;
+    margin-left: -185px;
+    margin-top: -300px;
+}
+
+#treatCoke hr {
+    width: 70px;
+    height: 0;
+    border: 2px solid var(--白色);
+    flex: none;
+    margin: 0;
+    flex-grow: 0;
+    line-height: 100%;
+}
+
+#treatCoke h4 {
+    margin: 0;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 100%;
+}
+
+#treatCoke p {
+    margin: 0;
+}
+
+#treatCoke div {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    background: #030c30cc;
+    border: 0.5px solid #0067DF4C;
+    box-shadow: 0 34px 30px -21px #030c306b, inset 0 0 214px #030c30cc;
+    backdrop-filter: blur(12px);
+    border-radius: 10px;
+    padding: 60px;
+
+}
+
+#treatCoke img {
+    width: 250px;
+    /*height: 250px;*/
+}
+#treatCoke p {
+    display: flex;
+    gap:10px
+}
+#treatCoke p span {
+    font-weight:800;
+    color:var(--绿色);
+}
 body {
     font: 15px 'Open Sans', sans-serif;
     cursor: default;
@@ -116,7 +198,7 @@ tr:hover {
 
 /* grid box */
 .row-items {
-    background-color: rgba(41, 104, 252, 0.2);
+    background-color: rgb(187 221 250 / 13%);
     backdrop-filter: blur(4px);
     position: relative;
     margin-bottom: 4px;
@@ -323,7 +405,7 @@ button.with-icon.icon2:before {
 }
 
 button.with-icon.icon3 {
-    background-color: var(--棕灰) !important;
+    background-color: var(--橙色) !important;
 }
 
 button.with-icon.icon3:before {
@@ -456,14 +538,14 @@ span.sprite {
 }
 
 span.sprite.github {
-    background-position: 0 -48px;
+    background-image: url(../assets/github.svg);
     width: 16px;
     height: 16px;
     margin-right: 5px
 }
 
 span.sprite.heart {
-    background-position: -16px -48px;
+    background-image: url(../assets/heart.svg);
     width: 16px;
     height: 16px;
     margin-right: 5px
@@ -709,9 +791,9 @@ optgroup {
 }
 
 #the-editor input[type=text], #the-editor input[type=number], #the-editor select {
-    border: 1px solid #444444;
+    border: 1px solid #4a58867d;
     border-radius: 2px;
-    background-color: #300303;
+    background-color: #010623;
     color: var(--白色);
 }
 
@@ -736,9 +818,7 @@ button {
     padding: 7px 12px;
     margin: 0;
     background-color: var(--灰白);
-
-    color: #3F1515;
-
+    color: var(--橙色);
     box-sizing: border-box;
 
 }
@@ -939,9 +1019,9 @@ button.no-text.with-icon:before {
     flex-direction: column;
     gap: 25px;
 
-    background: #300303CC;
+    background: #030c30cc;
     border: 0.5px solid #0067DF4C;
-    box-shadow: 0 34px 30px -21px #210707BF, inset 0 0 214px #0071C428;
+    box-shadow: 0 34px 30px -21px #030c306b, inset 0 0 214px #030c30cc;
     backdrop-filter: blur(12px);
 
     border-radius: 10px;
@@ -1210,9 +1290,10 @@ span.tips {
 
 #tab-weapons .columns.row.c3::after, #tab-bows .columns.row.c3::after, #tab-shields .columns.row.c3::after {
     content: "|";
+    color: #4a58867d;
 }
 
-.search_checkbox{
+.search_checkbox {
     margin: 0;
     padding: 0;
     margin-left: 15px;
@@ -1220,12 +1301,14 @@ span.tips {
     height: 30px;
     padding-top: 12px;
 }
-.two.columns.text-right input[type=checkbox]{
-    height: 0px;
-    width: 0px;
+
+.two.columns.text-right input[type=checkbox] {
+    height: 0;
+    width: 0;
     visibility: hidden;
 }
-.two.columns.text-right label{
+
+.two.columns.text-right label {
     cursor: pointer;
     height: 30px;
     border-radius: 15px;
@@ -1234,9 +1317,10 @@ span.tips {
     width: 70px;
     position: relative;
 }
+
 .two.columns.text-right label::before {
     content: '';
-    display:inline-block;
+    display: inline-block;
     background-color: white;
     height: 20px;
     width: 20px;
@@ -1244,15 +1328,18 @@ span.tips {
     top: 5px;
     left: 5px;
     border-radius: 10px;
-    transition:0.3s;
+    transition: 0.3s;
 }
+
 .two.columns.text-right input:checked + label {
     background: var(--绿色);
 }
+
 .two.columns.text-right input:checked + label:before {
     left: calc(100% - 5px);
     transform: translateX(-100%);
 }
-.two.columns.text-right label:active:before{
-    width:40px;
+
+.two.columns.text-right label:active:before {
+    width: 40px;
 }
