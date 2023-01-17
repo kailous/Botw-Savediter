@@ -1,5 +1,5 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path id="Vector"
           d="M4.33333 1H1.66667C1.29848 1 1 1.29848 1 1.66667V4.33333M4.33333 13H1.66667C1.29848 13 1 12.7015 1 12.3333V9.66667M9.66667 13H12.3333C12.7015 13 13 12.7015 13 12.3333V9.66667M9.66667 1H12.3333C12.7015 1 13 1.29848 13 1.66667V4.33333M9.66667 7H4.33333M7 9.66667V4.33333"
-          stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          stroke="#E05418" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

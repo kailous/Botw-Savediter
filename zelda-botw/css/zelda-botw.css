@@ -152,6 +152,7 @@ button {
     font-weight:800;
     color:var(--绿色);
 }
+
 body {
     font: 15px 'Open Sans', sans-serif;
     cursor: default;
@@ -370,9 +371,6 @@ button.button.with-icon {
     color: var(--白色);
 }
 
-button.with-icon.icon1:before {
-    margin-right: 10px;
-}
 
 span.sprite {
     width: 24px;
@@ -397,7 +395,8 @@ button.with-icon.icon0:before {
 }
 
 button.with-icon.icon1:before {
-    background-image: url(../assets/add.svg); /*background-position:-16px -16px;*/
+    margin-right: 10px;
+    content:url(../assets/add.svg);
 }
 
 button.with-icon.icon2:before {
