@@ -206,7 +206,7 @@ tr:hover {
 }
 
 .row-items2 {
-    background-color: #3F151566;
+    background-color: rgb(187 221 250 / 13%);
     backdrop-filter: blur(4px);
     position: relative;
     margin-bottom: 0;
