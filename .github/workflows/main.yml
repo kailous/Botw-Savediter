@@ -1,0 +1,22 @@
+name: Build MacOS App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        npm install -g electron-packager
+
+    - name: Package the application
+      run: |
+        electron-packager . myApp --platform=darwin --arch=x64 --icon=assets/icon.icns
