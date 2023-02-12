@@ -17,39 +17,29 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-          
-          - name: Install Wine
-  run: sudo apt-get install wine64
-      - name: Install dependencies
-        run: |
-          npm install
-          sudo npm install @electron-forge/cli@^6.0.4 @electron-forge/maker-deb@^6.0.4 @electron-forge/maker-rpm@^6.0.4 @electron-forge/maker-squirrel@^6.0.4 @electron-forge/maker-zip@^6.0.4 electron@^22.0.0 electron-builder@^23.6.0 electron-packager@^17.1.1
-          npm install electron-squirrel-startup
-          npm ci
 
-      - name: Build Mac x64
-        run: |
-          npm run package-mac
-        env:
-          CI: true
+         - name: Install dependencies
+         run: |
+           npm install
+           npm ci
 
-      - name: Build Mac arm
-        run: |
-          npm run package-mac-arm64
-        env:
-          CI: true
+           - name: Build Mac x64
+             run: |
+               npm run package-mac
+             env:
+               CI: true
 
-      - name: Build Win64
-        run: |
-          npm run package-win
-        env:
-          CI: true
+           - name: Build Mac arm
+             run: |
+               npm run package-mac-arm64
+             env:
+               CI: true
 
-      - name: Publish to GitHub Releases
-        uses: actions/upload-artifact@v2
-        with:
-          name: app-package
-          path: dist
+           - name: Publish to GitHub Releases
+             uses: actions/upload-artifact@v2
+             with:
+               name: app-package
+               path: dist
 
   release:
     runs-on: ubuntu-latest
