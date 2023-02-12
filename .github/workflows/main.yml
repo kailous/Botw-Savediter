@@ -55,16 +55,12 @@ jobs:
         with:
           name: app-package
 
-      - name: Generate tag name
-        id: generate-tag-name
-        run: echo "Botw-Savediter-App-$(date +'%s')-$(echo $(echo ${GITHUB_SHA} | cut -c1-7))"
-
       - name: Create Release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.generate-tag-name.outputs.tag_name }}
+          tag_name: Botw-Savediter-App-${{ env.GITHUB_SHA }}
           release_name: Release Botw-Savediter-App
           draft: false
           prerelease: false
