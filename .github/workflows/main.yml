@@ -58,11 +58,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.TAG_NAME }}
-          release_name: Release ${{ env.TAG_NAME }}
+          tag_name: ${{ secrets.TAG_NAME }}
+          release_name: Release ${{ secrets.TAG_NAME }}
           draft: false
           prerelease: false
-          upload_url: ${{ env.UPLOAD_URL }}
+          upload_url: ${{ secrets.UPLOAD_URL }}
           asset_path: dist/*
-          asset_name: app-${{ env.TAG_NAME }}.zip
+          asset_name: app-${{ secrets.TAG_NAME }}.zip
           asset_content_type: application/zip
