@@ -57,8 +57,8 @@ jobs:
         with:
           name: app-package
 
-      - name: Create Release
-        uses: actions/create-release@v1
+      - name: Create or Update Release
+        uses: actions/create-or-update-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -66,14 +66,7 @@ jobs:
           release_name: Release Botw-Savediter-App
           draft: false
           prerelease: false
-        id: create_release
-
-      - name: Upload Artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          upload_url: ${{ secrets.UPLOAD_URL }}
           asset_path: app-Botw-Savediter.zip
           asset_name: app-Botw-Savediter.zip
           asset_content_type: application/zip
