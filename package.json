@@ -1,0 +1,42 @@
+{
+  "name": "botw-savediter",
+  "version": "1.0.0",
+  "description": "塞尔达传说：旷野之息 游戏存档修改器",
+  "main": "main.js",
+  "scripts": {
+    "start": "node_modules/.bin/electron-packager start",
+    "package": "node_modules/.bin/electron-packager package",
+    "make": "node_modules/.bin/electron-packager make",
+    "package-mac": "node_modules/.bin/electron-packager ./ --platform=darwin --arch=arm64 --out=./dist --ignore=node_modules --ignore=build-ol.sh  --ignore=README.md --ignore=zelda-botw/cover.png --ignore=zelda-botw/thumb.jpg",
+    "package-mac-arm64": "node_modules/.bin/electron-packager ./ --platform=darwin --arch=arm64 --out=./dist --ignore=node_modules --ignore=build-ol.sh  --ignore=README.md --ignore=zelda-botw/cover.png --ignore=zelda-botw/thumb.jpg",
+    "package-win": "node_modules/.bin/electron-packager ./ --platform=win32 --out ./dist --overwrite --arch=x64 --ignore=node_modules --ignore=build-ol.sh  --ignore=README.md --ignore=zelda-botw/cover.png --ignore=zelda-botw/thumb.jpg"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kailous/Botw-Savediter.git#main"
+  },
+  "keywords": [
+    "save",
+    "editer",
+    "botw"
+  ],
+  "author": "Rainforest",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kailous/Botw-Savediter/issues"
+  },
+  "homepage": "https://github.com/kailous/Botw-Savediter/tree/main#readme",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.4",
+    "@electron-forge/maker-deb": "^6.0.4",
+    "@electron-forge/maker-rpm": "^6.0.4",
+    "@electron-forge/maker-squirrel": "^6.0.4",
+    "@electron-forge/maker-zip": "^6.0.4",
+    "electron": "^22.0.0",
+    "electron-builder": "^23.6.0",
+    "electron-packager": "^17.1.1"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  }
+}
