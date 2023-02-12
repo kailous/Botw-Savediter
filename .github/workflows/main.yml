@@ -60,8 +60,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: Botw-Savediter-App-${{ env.GITHUB_SHA }}
-          release_name: Release Botw-Savediter-App
+          tag_name: botw_savediter_app-${{ env.GITHUB_SHA }}
+          release_name: Release botw_savediter_app
           draft: false
           prerelease: false
           upload_url: ${{ secrets.UPLOAD_URL }}
