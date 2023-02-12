@@ -35,11 +35,15 @@ jobs:
         env:
           CI: true
 
+      - name: Package app into zip
+        run: |
+          zip -r app-Botw-Savediter.zip dist
+
       - name: Publish to GitHub Releases
         uses: actions/upload-artifact@v2
         with:
           name: app-package
-          path: dist
+          path: app-Botw-Savediter.zip
 
   release:
     runs-on: ubuntu-latest
@@ -63,6 +67,6 @@ jobs:
           draft: false
           prerelease: false
           upload_url: ${{ secrets.UPLOAD_URL }}
-          asset_path: dist/*
+          asset_path: app-Botw-Savediter.zip
           asset_name: app-Botw-Savediter.zip
           asset_content_type: application/zip
