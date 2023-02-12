@@ -56,11 +56,11 @@ jobs:
           name: app-package
 
       - name: Create Release
-        uses: actions/create-release@v2
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: botw_savediter_app
+          tag_name: botw_savediter_app_${{ env.GITHUB_SHA }}
           release_name: Release botw_savediter_app
           draft: false
           prerelease: false
