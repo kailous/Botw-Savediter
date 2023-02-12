@@ -17,9 +17,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-
       - name: Install dependencies
         run: |
+          npm install
           sudo npm install @electron-forge/cli@^6.0.4 @electron-forge/maker-deb@^6.0.4 @electron-forge/maker-rpm@^6.0.4 @electron-forge/maker-squirrel@^6.0.4 @electron-forge/maker-zip@^6.0.4 electron@^22.0.0 electron-builder@^23.6.0 electron-packager@^17.1.1
           npm install electron-squirrel-startup
           npm ci
