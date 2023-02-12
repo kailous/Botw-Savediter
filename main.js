@@ -8,11 +8,11 @@ function createWindow () {
         frame: false,
         titleBarStyle: 'hidden',
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'zelda-botw/preload.js')
         }
     })
 
-    win.loadFile('index.html')
+    win.loadFile('zelda-botw/index.html')
 }
 
 app.whenReady().then(() => {
