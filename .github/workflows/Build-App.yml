@@ -20,6 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          npm install electron-squirrel-startup
           npm ci
 
       - name: Build Mac x64
