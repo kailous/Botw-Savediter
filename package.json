@@ -7,6 +7,7 @@
     "start": "node_modules/.bin/electron-packager start",
     "package": "node_modules/.bin/electron-packager package",
     "make": "node_modules/.bin/electron-packager make",
+    "rebuild": "node_modules/.bin/electron-rebuild -f -w electron",
     "package-mac": "node_modules/.bin/electron-packager ./ --platform=darwin --arch=arm64 --out=./dist --ignore=node_modules --ignore=build-ol.sh  --ignore=README.md --ignore=zelda-botw/cover.png --ignore=zelda-botw/thumb.jpg",
     "package-mac-arm64": "node_modules/.bin/electron-packager ./ --platform=darwin --arch=arm64 --out=./dist --ignore=node_modules --ignore=build-ol.sh  --ignore=README.md --ignore=zelda-botw/cover.png --ignore=zelda-botw/thumb.jpg",
     "package-win": "node_modules/.bin/electron-packager ./ --platform=win32 --out ./dist --overwrite --arch=x64 --ignore=node_modules --ignore=build-ol.sh  --ignore=README.md --ignore=zelda-botw/cover.png --ignore=zelda-botw/thumb.jpg"
@@ -34,7 +35,8 @@
     "@electron-forge/maker-zip": "^6.0.4",
     "electron": "^22.2.1",
     "electron-builder": "^23.6.0",
-    "electron-packager": "^17.1.1"
+    "electron-packager": "^17.1.1",
+    "electron-rebuild": "^3.2.9"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"
